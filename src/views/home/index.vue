@@ -5,8 +5,8 @@ const counter = useCounterStore()
 </script>
 
 <template>
-  Home
-  <button @click="counter.increment">+</button>
-  <p>{{ counter.count }}</p>
-  <p>doubleCount:{{ counter.doubleCount }}</p>
+	Home
+	<button @click="counter.increment">+</button>
+	<p>{{ counter.count }}</p>
+	<p>doubleCount:{{ counter.doubleCount }}</p>
 </template>

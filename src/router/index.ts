@@ -5,14 +5,14 @@ import NotFound from '@/views/notFound/index.vue'
 import User from '@/views/user/index.vue'
 
 const routes = [
-  { path: '/', component: Home },
-  { path: '/user', component: User },
-  { path: '/about', component: NotFound },
+	{ path: '/', component: Home },
+	{ path: '/user', component: User },
+	{ path: '/about', component: NotFound }
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
-  routes,
+	history: createWebHistory(),
+	routes
 })
 
 export default router
