@@ -5,8 +5,11 @@ import { RouterView } from 'vue-router'
 <template>
 	<ElContainer class="h-full">
 		<ElHeader>Header</ElHeader>
-		<ElMain>
-			<RouterView />
-		</ElMain>
+		<ElContainer>
+			<ElAside>Aside</ElAside>
+			<ElMain>
+				<RouterView />
+			</ElMain>
+		</ElContainer>
 	</ElContainer>
 </template>

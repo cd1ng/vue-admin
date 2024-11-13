@@ -1,2 +1,10 @@
 /dist/*
 /node_modules/**
+tailwind.config.js
+tsconfig.app.json
+tsconfig.json
+tsconfig.node.json
+package.json
+eslint.config.js
+postcss.config.js
+.vscode/extensions.json 
