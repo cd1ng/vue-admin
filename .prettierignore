@@ -8,3 +8,4 @@ package.json
 eslint.config.js
 postcss.config.js
 .vscode/extensions.json 
+/types/*

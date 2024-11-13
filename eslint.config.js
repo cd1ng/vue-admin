@@ -19,6 +19,6 @@ export default [
 	},
 	{ rules: { 'vue/multi-word-component-names': 'off' } },
 	{
-		ignores: ['dist', 'node_modules/*', '.commitlintrc.js']
+		ignores: ['dist', 'node_modules/*', '.commitlintrc.js','types']
 	}
 ]

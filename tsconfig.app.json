@@ -25,7 +25,12 @@
 		"paths": {
 			"@/*": ["src/*"]
 		},
-		"types": ["element-plus/global"] // element plus 类型提示
+		"types": [
+			"element-plus/global",
+			"./types/auto-imports",
+			"./types/components",
+			"./types/vite-env"
+		]
 	},
-	"include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]
+	"include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "types/**/*.d.ts"]
 }
