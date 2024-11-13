@@ -3,7 +3,10 @@ import { RouterView } from 'vue-router'
 </script>
 
 <template>
-	<RouterView />
+	<ElContainer class="h-full">
+		<ElHeader>Header</ElHeader>
+		<ElMain>
+			<RouterView />
+		</ElMain>
+	</ElContainer>
 </template>
-
-<style scoped></style>
