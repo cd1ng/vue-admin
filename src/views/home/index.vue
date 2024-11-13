@@ -6,7 +6,7 @@ const counter = useCounterStore()
 
 <template>
 	Home
-	<button @click="counter.increment">+</button>
+	<ElButton @click="counter.increment">+</ElButton>
 	<p>{{ counter.count }}</p>
 	<p>doubleCount:{{ counter.doubleCount }}</p>
 </template>
