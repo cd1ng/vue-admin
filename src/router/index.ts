@@ -9,12 +9,23 @@ const modules: Record<string, ModuleNamespace> = import.meta.glob(['./modules/*.
 	eager: true
 })
 
+// 404 路由
+const notFoundRoute: RouteRecordRaw = {
+	path: '/:pathMatch(.*)*',
+	name: 'NotFound',
+	component: () => import('@/views/notFound/index.vue'),
+	meta: {},
+	children: []
+}
+
 // 配置路由
 const routes: Array<RouteRecordRaw> = []
 Object.keys(modules).forEach((key) => {
 	const module = modules[key].default
 	routes.push(module)
 })
+// 确保404路由最后被命中
+routes.push(notFoundRoute)
 
 const router = createRouter({
 	history: createWebHistory(),
