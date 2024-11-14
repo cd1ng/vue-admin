@@ -27,9 +27,9 @@
 		},
 		"types": [
 			"element-plus/global",
-			"./types/auto-imports",
-			"./types/components",
-			"./types/vite-env"
+			"types/auto-imports.d.ts",
+			"types/components.d.ts",
+			"types/vite-env.d.ts"
 		]
 	},
 	"include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "types/**/*.d.ts"]

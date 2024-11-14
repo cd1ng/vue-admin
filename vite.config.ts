@@ -6,8 +6,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import Icons from 'unplugin-icons/vite'
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
+
 import ElementPlus from 'unplugin-element-plus/vite'
 
 // https://vite.dev/config/
@@ -24,7 +23,12 @@ export default defineConfig({
 			dts: './types/auto-imports.d.ts',
 			eslintrc: {
 				enabled: true
-			}
+			},
+			// 添加以下配置
+			include: [/\.[tj]sx?$/, /\.vue$/, /\.vue\?vue/],
+			// 添加默认导入
+			defaultExportByFilename: false,
+			vueTemplate: true
 		}),
 		// 自动注册组件
 		Components({
