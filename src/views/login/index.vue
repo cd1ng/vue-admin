@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { User, Lock } from '@element-plus/icons-vue'
 // 导入 Element Plus 的类型定义
 import type { ComponentSize, FormInstance, FormRules } from 'element-plus'
 
@@ -34,7 +35,6 @@ const rules = reactive<FormRules<RuleForm>>({
 const resetForm = (formEl: FormInstance | undefined) => {
 	if (!formEl) return
 	formEl.resetFields()
-	console.log('重置表单', formEl)
 }
 
 // 提交表单方法
@@ -70,14 +70,14 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 				<template #label>
 					<span class="text-gray-600">用户名</span>
 				</template>
-				<ElInput v-model="userInfo.name" placeholder="请输入用户名" class="w-full" />
+				<ElInput v-model="userInfo.name" placeholder="请输入用户名" :prefix-icon="User" class="w-full" />
 			</ElFormItem>
 			<!-- 密码输入项 -->
 			<ElFormItem prop="password" label-position="left" label-width="80px">
 				<template #label>
 					<span class="text-gray-600">密码</span>
 				</template>
-				<ElInput v-model="userInfo.password" type="password" placeholder="请输入密码" class="w-full" />
+				<ElInput v-model="userInfo.password" type="password" placeholder="请输入密码" :prefix-icon="Lock" class="w-full" />
 			</ElFormItem>
 			<!-- 按钮组 -->
 			<ElFormItem class="mb-0">

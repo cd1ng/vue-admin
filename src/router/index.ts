@@ -1,16 +1,20 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import type { ModuleNamespace } from 'vite/types/hot.js'
 
-import Home from '@/views/home/index.vue'
-import NotFound from '@/views/notFound/index.vue'
-import User from '@/views/user/index.vue'
-import Login from '@/views/login/index.vue'
+// 组合路由信息
+// import.meta.glob 为 vite 提供的特殊导入方式
+// 它可以将模块中全部内容导入并返回一个Record对象
+// 默认为懒加载模式 加入配置项 eager 取消懒加载
+const modules: Record<string, ModuleNamespace> = import.meta.glob(['./modules/*.ts'], {
+	eager: true
+})
 
-const routes = [
-	{ path: '/', component: Home },
-	{ path: '/user', component: User },
-	{ path: '/login', component: Login },
-	{ path: '/about', component: NotFound }
-]
+// 配置路由
+const routes: Array<RouteRecordRaw> = []
+Object.keys(modules).forEach((key) => {
+	const module = modules[key].default
+	routes.push(module)
+})
 
 const router = createRouter({
 	history: createWebHistory(),
