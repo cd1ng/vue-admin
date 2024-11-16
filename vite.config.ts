@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
+import { fileURLToPath } from 'url'
 import vue from '@vitejs/plugin-vue'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -58,6 +59,27 @@ export default defineConfig({
 			outputDir: '.vite-inspect'
 		})
 	],
+	// 打包配置
+	build: {
+		// 关闭 sorcemap 报错不会映射到源码
+		sourcemap: false,
+		// 打包大小超出 400kb 提示警告
+		chunkSizeWarningLimit: 400,
+		rollupOptions: {
+			// 打包入口文件 根目录下的 index.html
+			// 也就是项目从哪个文件开始打包
+			input: {
+				index: fileURLToPath(new URL('./index.html', import.meta.url))
+			},
+			// 静态资源分类打包
+			output: {
+				format: 'esm',
+				chunkFileNames: 'static/js/[name]-[hash].js',
+				entryFileNames: 'static/js/[name]-[hash].js',
+				assetFileNames: 'static/[ext]/[name]-[hash].[ext]'
+			}
+		}
+	},
 	resolve: {
 		alias: {
 			'@': resolve(__dirname, './src')
