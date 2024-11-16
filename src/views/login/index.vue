@@ -41,8 +41,9 @@ const resetForm = (formEl: FormInstance | undefined) => {
 	formEl.resetFields()
 }
 const router = useRouter()
-const { setUserInfo } = useUserInfoStore()
 
+const store = useUserInfoStore()
+const { setUserInfo } = store
 // 提交表单方法
 const submitForm = async (formEl: FormInstance | undefined) => {
 	if (!formEl) return
