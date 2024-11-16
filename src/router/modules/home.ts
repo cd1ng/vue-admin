@@ -12,17 +12,17 @@ export default {
 		{
 			path: '/user',
 			name: 'UserPage',
-			component: import('@/views/user/index.vue')
+			component: () => import('@/views/user/index.vue')
 		},
 		{
 			path: '/role',
 			name: 'RolePage',
-			component: import('@/views/role/index.vue')
+			component: () => import('@/views/role/index.vue')
 		},
 		{
 			path: '/list',
 			name: 'ListPage',
-			component: import('@/views/list/index.vue')
+			component: () => import('@/views/list/index.vue')
 		}
 	]
 }
