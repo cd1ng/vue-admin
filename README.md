@@ -1,5 +1,15 @@
-# Vue 3 + TypeScript + Vite
+# Vue 3 + TypeScript + Vite + Pinia + TailwindCSS
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+The project is a simple user management system built with Vue 3, TypeScript, Vite, Pinia, and TailwindCSS. It includes basic CRUD operations for managing users.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+## Project Setup
+
+```bash
+pnpm install
+pnpm run dev
+```
+
+## Run Project
+
+You should set the environment variables before running the project.
+I suggest use EasyMock(https://mock.presstime.cn/) to mock backend api.

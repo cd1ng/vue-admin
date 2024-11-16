@@ -13,6 +13,11 @@ export default {
 			path: '/user',
 			name: 'UserPage',
 			component: import(/* webpackChunkName: "user" */ '@/views/user/index.vue')
+		},
+		{
+			path: '/role',
+			name: 'RolePage',
+			component: import(/* webpackChunkName: "role" */ '@/views/role/index.vue')
 		}
 	]
 }
