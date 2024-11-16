@@ -18,6 +18,11 @@ export default {
 			path: '/role',
 			name: 'RolePage',
 			component: import(/* webpackChunkName: "role" */ '@/views/role/index.vue')
+		},
+		{
+			path: '/list',
+			name: 'ListPage',
+			component: import(/* webpackChunkName: "list" */ '@/views/list/index.vue')
 		}
 	]
 }
