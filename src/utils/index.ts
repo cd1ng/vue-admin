@@ -1,3 +1,4 @@
 import request from './request'
+import { setSessionStorage, clearSessionStorage } from './localstorage'
 
-export { request }
+export { request, setSessionStorage, clearSessionStorage }

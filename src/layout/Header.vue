@@ -1,8 +1,13 @@
 <script setup lang="ts">
 import { User } from '@element-plus/icons-vue'
+import { useUserInfoStore } from '@/store/userInfo'
+
+const router = useRouter()
+const { userInfo, clearUserInfo } = useUserInfoStore()
 
 const handleLogout = () => {
-	console.log('退出')
+	clearUserInfo()
+	router.push('/login')
 }
 </script>
 
@@ -15,10 +20,11 @@ const handleLogout = () => {
 
 			<div class="flex items-center space-x-4">
 				<div class="flex items-center">
-					<el-avatar :size="32" :icon="User" />
-					<span class="ml-2">用户名</span>
+					<ElAvatar v-if="!userInfo.image" :size="32" :icon="User" />
+					<img v-else :src="userInfo.image" class="w-[32px] h-[32px] rounded-full" alt="头像" />
+					<span class="ml-2">{{ userInfo.username ?? '用户名' }}</span>
 				</div>
-				<el-button type="primary" link @click="handleLogout"> 退出登录 </el-button>
+				<ElButton type="primary" link @click="handleLogout"> 退出登录 </ElButton>
 			</div>
 		</div>
 	</ElHeader>

@@ -1,5 +1,9 @@
 <script setup lang="ts">
+import { ElMessage, ElLoading } from 'element-plus'
 import { User, Lock } from '@element-plus/icons-vue'
+
+import { authApi } from '@/http/auth/api'
+import { useUserInfoStore } from '@/store/userInfo'
 // 导入 Element Plus 的类型定义
 import type { ComponentSize, FormInstance, FormRules } from 'element-plus'
 
@@ -36,17 +40,41 @@ const resetForm = (formEl: FormInstance | undefined) => {
 	if (!formEl) return
 	formEl.resetFields()
 }
+const router = useRouter()
+const { setUserInfo } = useUserInfoStore()
 
 // 提交表单方法
 const submitForm = async (formEl: FormInstance | undefined) => {
 	if (!formEl) return
-	await formEl.validate((valid, fields) => {
-		if (valid) {
-			console.log('submit!')
-		} else {
-			console.log('error submit!', fields)
+
+	try {
+		// 先进行表单验证
+		await formEl.validate()
+
+		// 显示加载状态
+		const loading = ElLoading.service({
+			lock: true,
+			text: '登录中...',
+			background: 'rgba(0, 0, 0, 0.7)'
+		})
+
+		try {
+			// 调用登录接口
+			const res = await authApi.login(userInfo.name, userInfo.password)
+			const { username, token, role, image } = res.data as { username: string; token: string; role: string; image: string }
+
+			// 保存用户信息到 store 和 localStorage
+			setUserInfo({ username, token, role, image })
+			ElMessage.success('登录成功')
+			router.push('/')
+		} catch (error) {
+			ElMessage.error('登录失败：' + (error as Error).message)
+		} finally {
+			loading.close()
 		}
-	})
+	} catch (formError) {
+		console.error('表单验证失败:', formError)
+	}
 }
 </script>
 

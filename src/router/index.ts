@@ -1,4 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
+
 import type { ModuleNamespace } from 'vite/types/hot.js'
 
 // 组合路由信息
@@ -30,6 +33,23 @@ routes.push(notFoundRoute)
 const router = createRouter({
 	history: createWebHistory(),
 	routes
+})
+
+// 路由权限控制
+router.beforeEach(async (_to, _from, next) => {
+	// 显示进度条
+	NProgress.start()
+	const token = localStorage.getItem('token')
+	const userIsLogin = token ? true : false
+	if (userIsLogin || _to.path === '/login') {
+		next()
+	} else {
+		next('/login')
+	}
+})
+router.afterEach(() => {
+	// 结束进度条显示
+	NProgress.done()
 })
 
 export default router

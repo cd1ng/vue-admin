@@ -10,7 +10,8 @@ interface LoginParams {
 }
 
 interface UserInfo {
-	id: string
-	name: string
+	token: string
+	username: string
 	role: string
+	image: string
 }

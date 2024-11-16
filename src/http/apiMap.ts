@@ -13,3 +13,10 @@ export const userApis: ApiMap = {
 	updateUsers: ['PUT', '/api/users/{id}'],
 	deleteUsers: ['DELETE', '/api/users/{id}']
 }
+
+/**
+ * 权限相关接口
+ */
+export const authApis: ApiMap = {
+	login: ['POST', '/api/login']
+}

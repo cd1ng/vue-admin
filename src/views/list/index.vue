@@ -47,7 +47,6 @@ const pagination = reactive({
 // 搜索方法
 const handleSearch = () => {
 	loading.value = true
-	console.log('搜索条件：', searchForm)
 	// 这里添加实际的搜索逻辑
 	setTimeout(() => {
 		loading.value = false

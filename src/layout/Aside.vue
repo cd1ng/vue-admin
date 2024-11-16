@@ -25,12 +25,12 @@ const menuItems = [
 
 <template>
 	<ElAside :width="isCollapse ? '64px' : '200px'" class="aside-container">
-		<el-menu :collapse="isCollapse" :collapse-transition="false" class="h-full" router>
-			<el-menu-item v-for="item in menuItems" :key="item.index" :index="item.index">
-				<el-icon><component :is="item.icon" /></el-icon>
+		<ElMenu :collapse="isCollapse" :collapse-transition="false" class="h-full" router>
+			<ElMenuItem v-for="item in menuItems" :key="item.index" :index="item.index">
+				<ElIcon><component :is="item.icon" /></ElIcon>
 				<template #title>{{ item.title }}</template>
-			</el-menu-item>
-		</el-menu>
+			</ElMenuItem>
+		</ElMenu>
 
 		<div class="collapse-btn" @click="isCollapse = !isCollapse">
 			<el-icon>

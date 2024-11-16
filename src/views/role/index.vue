@@ -2,9 +2,10 @@
 import { userApi } from '@/http/user/api'
 
 interface UserInfo {
-	id: string
-	name: string
+	token: string
+	username: string
 	role: string
+	image: string
 }
 
 const tableData = ref<UserInfo[]>([])
