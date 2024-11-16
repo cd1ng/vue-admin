@@ -10,7 +10,6 @@ import { userApis } from '@/http/apiMap'
  */
 export async function getUserList() {
 	const [method, url] = userApis.getUsersList
-	console.log(method, url)
 	return request[method]<UserInfo[]>(url)
 }
 
