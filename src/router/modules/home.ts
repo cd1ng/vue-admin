@@ -14,14 +14,6 @@ export default {
 			}
 		},
 		{
-			path: '/user',
-			name: 'UserPage',
-			component: () => import('@/views/user/index.vue'),
-			meta: {
-				KeepAlive: true
-			}
-		},
-		{
 			path: '/role',
 			name: 'RolePage',
 			component: () => import('@/views/role/index.vue'),

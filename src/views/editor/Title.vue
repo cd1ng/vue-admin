@@ -18,5 +18,10 @@ const handleInput = (e: Event) => {
 </script>
 
 <template>
-	<input :value="title" placeholder="请输入标题" class="h-10 w-full border-b border-gray-200" @input="handleInput" />
+	<input
+		:value="title"
+		placeholder="请输入标题"
+		class="w-full font-bold text-2xl px-4 h-14 whitespace-nowrap overflow-hidden text-ellipsis border-b outline-none"
+		@input="handleInput"
+	/>
 </template>

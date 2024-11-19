@@ -20,9 +20,3 @@ import Aside from './Aside.vue'
 		</ElContainer>
 	</ElContainer>
 </template>
-
-<style scoped>
-:deep(.el-container) {
-	height: 100%;
-}
-</style>

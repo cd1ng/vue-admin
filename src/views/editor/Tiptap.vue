@@ -14,6 +14,11 @@ const editor = useEditor({
 	extensions: [StarterKit],
 	onUpdate: ({ editor }) => {
 		emit('update-content', editor.getHTML())
+	},
+	editorProps: {
+		attributes: {
+			class: 'p-4 w-full h-full focus:outline-none'
+		}
 	}
 })
 </script>

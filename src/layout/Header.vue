@@ -7,34 +7,29 @@ const { userInfo, clearUserInfo } = useUserInfoStore()
 
 const handleLogout = () => {
 	clearUserInfo()
+	ElMessage.success('退出登录成功')
 	router.push('/login')
 }
 </script>
 
 <template>
-	<ElHeader class="header-container">
-		<div class="flex items-center justify-between px-4 h-full">
-			<div class="flex items-center">
-				<h1 class="ml-4 text-xl font-semibold">后台管理系统</h1>
-			</div>
-
-			<div class="flex items-center space-x-4">
-				<div class="flex items-center">
+	<div class="flex items-center justify-between h-full">
+		<h1 class="text-xl font-semibold select-none">后台管理系统</h1>
+		<div class="flex items-center space-x-4">
+			<ElDropdown trigger="hover">
+				<div class="flex items-center cursor-pointer outline-none">
 					<ElAvatar v-if="!userInfo.image" :size="32" :icon="User" />
 					<img v-else :src="userInfo.image" class="w-[32px] h-[32px] rounded-full" alt="头像" />
-					<span class="ml-2">{{ userInfo.username ?? '用户名' }}</span>
+					<span class="ml-2 select-none">{{ userInfo.username ?? '用户名' }}</span>
+					<ElIcon class="ml-1"><ArrowDown /></ElIcon>
 				</div>
-				<ElButton type="primary" link @click="handleLogout"> 退出登录 </ElButton>
-			</div>
+				<template #dropdown>
+					<ElDropdownMenu>
+						<ElDropdownItem>个人信息</ElDropdownItem>
+						<ElDropdownItem divided @click="handleLogout">退出登录</ElDropdownItem>
+					</ElDropdownMenu>
+				</template>
+			</ElDropdown>
 		</div>
-	</ElHeader>
+	</div>
 </template>
-
-<style scoped>
-.header-container {
-	height: 60px;
-	background-color: white;
-	border-bottom: 1px solid #e5e7eb;
-	padding: 0;
-}
-</style>
