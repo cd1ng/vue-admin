@@ -36,6 +36,22 @@ export default {
 			meta: {
 				KeepAlive: true
 			}
+		},
+		{
+			path: '/docs',
+			name: 'DocsPage',
+			component: () => import('@/views/docs/index.vue'),
+			meta: {
+				KeepAlive: true
+			}
+		},
+		{
+			path: '/editor',
+			name: 'EditorPage',
+			component: () => import('@/views/editor/index.vue'),
+			meta: {
+				KeepAlive: true
+			}
 		}
 	]
 }
