@@ -4,13 +4,13 @@ import Aside from './Aside.vue'
 </script>
 
 <template>
-	<ElContainer class="h-screen">
+	<ElContainer class="h-screen main-bg">
 		<ElHeader>
 			<Header />
 		</ElHeader>
 		<ElContainer>
 			<Aside />
-			<ElMain class="bg-gray-100">
+			<ElMain class="content-bg">
 				<RouterView v-slot="{ Component }">
 					<KeepAlive :include="['HomePage', 'ListPage', 'RolePage', 'UserPage']">
 						<component :is="Component" />

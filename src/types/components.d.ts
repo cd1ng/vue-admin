@@ -34,6 +34,7 @@ declare module 'vue' {
     Modal: typeof import('./../components/Modal.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    ThemeSwitch: typeof import('./../components/ThemeSwitch.vue')['default']
     UserBtn: typeof import('./../components/UserBtn.vue')['default']
     UserInfo: typeof import('./../components/UserInfo.vue')['default']
   }

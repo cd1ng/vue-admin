@@ -108,16 +108,14 @@ onMounted(() => {
 </script>
 
 <template>
-	<div>
-		<FilterInfo :loading="loading" @search="handleSearch" @reset="handleReset" />
-		<DataTable
-			:data="listData"
-			:loading="loading"
-			:height="tableHeight"
-			@add="handleAdd"
-			@edit="handleEdit"
-			@delete="handleDelete"
-			@copy-info="handleCopyInfo"
-		/>
-	</div>
+	<FilterInfo :loading="loading" @search="handleSearch" @reset="handleReset" />
+	<DataTable
+		:data="listData"
+		:loading="loading"
+		:height="tableHeight"
+		@add="handleAdd"
+		@edit="handleEdit"
+		@delete="handleDelete"
+		@copy-info="handleCopyInfo"
+	/>
 </template>

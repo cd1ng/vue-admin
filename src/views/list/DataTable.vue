@@ -21,7 +21,7 @@ const emit = defineEmits<{
 </script>
 
 <template>
-	<ElCard>
+	<ElCard class="card-bg text">
 		<template #header>
 			<div class="flex justify-between items-center">
 				<span>数据列表</span>
@@ -29,7 +29,7 @@ const emit = defineEmits<{
 			</div>
 		</template>
 
-		<ElTable v-loading="loading" :data="data" :height="height" border>
+		<ElTable v-loading="loading" :data="data" :height="height" class="card-bg text" border>
 			<ElTableColumn prop="id" label="ID" />
 			<ElTableColumn prop="name" label="名称" />
 			<ElTableColumn prop="status" label="状态">

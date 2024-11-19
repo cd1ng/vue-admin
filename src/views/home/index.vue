@@ -64,10 +64,10 @@ const initLineChart = () => {
 	<InfoCard :info-data="infoCard" />
 	<!-- 图表区域 -->
 	<div class="grid mt-6 grid-cols-1 md:grid-cols-2 gap-6">
-		<div class="bg-white p-4 rounded-lg shadow-sm">
+		<div class="card-bg text p-4 rounded-lg shadow-sm">
 			<div id="pieChart" style="height: 400px"></div>
 		</div>
-		<div class="bg-white p-4 rounded-lg shadow-sm">
+		<div class="card-bg text p-4 rounded-lg shadow-sm">
 			<div id="lineChart" style="height: 400px"></div>
 		</div>
 	</div>

@@ -3,6 +3,27 @@
 @tailwind utilities;
 
 @layer components {
+	/* 文本颜色 */
+	.text {
+		@apply text-gray-800 dark:text-gray-200;
+	}
+	/* 主背景 */
+	.main-bg {
+		@apply bg-white dark:bg-gray-900;
+	}
+	/* 内容区域背景 */
+	.content-bg {
+		@apply bg-gray-50 dark:bg-gray-800;
+	}
+	/* 悬浮背景 */
+	.hover-bg {
+		@apply hover:bg-gray-100 dark:hover:bg-gray-700;
+	}
+	/* 卡片背景 */
+	.card-bg {
+		@apply bg-white dark:bg-gray-900;
+	}
+
 	/* 用于编辑器工具栏 */
 	.bubble-menu {
 		@apply bg-white dark:bg-gray-800 

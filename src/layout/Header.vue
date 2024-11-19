@@ -14,13 +14,13 @@ const handleLogout = () => {
 
 <template>
 	<div class="flex items-center justify-between h-full">
-		<h1 class="text-xl font-semibold select-none">后台管理系统</h1>
+		<h1 class="text-xl font-semibold select-none text">后台管理系统</h1>
 		<div class="flex items-center space-x-4">
+			<ThemeSwitch />
 			<ElDropdown trigger="hover">
-				<div class="flex items-center cursor-pointer outline-none">
-					<ElAvatar v-if="!userInfo.image" :size="32" :icon="User" />
-					<img v-else :src="userInfo.image" class="w-[32px] h-[32px] rounded-full" alt="头像" />
-					<span class="ml-2 select-none">{{ userInfo.username ?? '用户名' }}</span>
+				<div class="flex items-center select-none cursor-pointer outline-none">
+					<ElAvatar :size="32" :icon="User" class="w-[32px] h-[32px] rounded-full" />
+					<span class="ml-2 select-none text">{{ userInfo.username ?? '用户名' }}</span>
 					<ElIcon class="ml-1"><ArrowDown /></ElIcon>
 				</div>
 				<template #dropdown>
