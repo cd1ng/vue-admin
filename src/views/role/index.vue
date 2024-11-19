@@ -25,7 +25,7 @@ onMounted(async () => {
 </script>
 
 <template>
-	<ElTable :data="tableData" class="card-bg text">
+	<ElTable :data="tableData" class="card-bg text select-none">
 		<ElTableColumn prop="userName" label="用户名" />
 		<ElTableColumn prop="userId" label="用户Id" />
 		<ElTableColumn prop="role" label="用户权限分组" />

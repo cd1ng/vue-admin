@@ -6,7 +6,7 @@ const { theme, toggleTheme } = useTheme()
 
 <template>
 	<ElIcon :size="20" class="main-bg cursor-pointer" @click="toggleTheme">
-		<Sunny v-if="theme" />
-		<Moon v-else />
+		<Moon v-if="theme" />
+		<Sunny v-else />
 	</ElIcon>
 </template>

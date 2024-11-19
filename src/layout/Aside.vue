@@ -28,7 +28,7 @@ const menuItems = [
 </script>
 
 <template>
-	<ElAside :width="isCollapse ? '64px' : '160px'" class="relative h-full main-bg">
+	<ElAside :width="isCollapse ? '64px' : '160px'" class="relative h-full main-bg select-none">
 		<ElMenu :collapse="isCollapse" :collapse-transition="false" class="main-bg h-full border-none" router>
 			<ElMenuItem v-for="item in menuItems" :key="item.index" :index="item.index" class="text hover-bg">
 				<ElIcon><component :is="item.icon" /></ElIcon>

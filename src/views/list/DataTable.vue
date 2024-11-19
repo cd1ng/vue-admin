@@ -23,7 +23,7 @@ const emit = defineEmits<{
 <template>
 	<ElCard class="card-bg text">
 		<template #header>
-			<div class="flex justify-between items-center">
+			<div class="flex justify-between items-center select-none">
 				<span>数据列表</span>
 				<ElButton type="primary" @click="emit('add')">新增</ElButton>
 			</div>

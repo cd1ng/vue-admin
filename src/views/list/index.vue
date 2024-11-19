@@ -109,11 +109,12 @@ onMounted(() => {
 </script>
 
 <template>
-	<FilterInfo :loading="loading" @search="handleSearch" @reset="handleReset" />
+	<FilterInfo :loading="loading" class="select-none" @search="handleSearch" @reset="handleReset" />
 	<DataTable
 		:data="listData"
 		:loading="loading"
 		:height="tableHeight"
+		class="select-none"
 		@add="handleAdd"
 		@edit="handleEdit"
 		@delete="handleDelete"
