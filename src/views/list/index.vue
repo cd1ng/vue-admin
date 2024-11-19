@@ -87,9 +87,9 @@ const handleAdd = () => {
 }
 
 const listData = computed(() => {
+	// 解构item,处理为undefined的情况
+	const { status = '', name = '', date = '' } = filterInfo
 	return tableData.value.filter((item) => {
-		// 解构item,处理为undef
-		const { status = '', name = '', date = '' } = item
 		// 所有条件为空时返回全部数据
 		if (status === '' && name === '' && date === '') return true
 		// 构建过滤条件数组

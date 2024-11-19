@@ -29,6 +29,6 @@ export const STATUS_CONFIG: Record<string, StatusConfig> = {
 // 头部高度
 export const HEADER_HEIGHT = 60
 // 表格搜索区域高度
-export const TABLE_SEARCH_HEIGHT = 150
+export const TABLE_SEARCH_HEIGHT = 110
 // 分页高度
 export const PAGE_SIZE_HEIGHT = 200
