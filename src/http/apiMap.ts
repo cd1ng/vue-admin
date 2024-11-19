@@ -7,23 +7,30 @@
  * 用户相关接口
  */
 export const userApis: ApiMap = {
+	// 获取用户列表
 	getUsersList: ['GET', '/api/users'],
-	addUsers: ['POST', '/api/users'],
-	getUsersDetail: ['GET', '/api/users/{id}'],
-	updateUsers: ['PUT', '/api/users/{id}'],
-	deleteUsers: ['DELETE', '/api/users/{id}']
+	// 获取用户详情
+	getUsersDetail: ['GET', '/api/users/{id}']
 }
 
 /**
  * 权限相关接口
  */
 export const authApis: ApiMap = {
-	login: ['POST', '/api/login']
+	// 登录接口
+	login: ['POST', '/api/login'],
+	// 权限列表
+	getAuthList: ['GET', '/api/auth/{id}']
 }
 
 /**
  * 数据列表
  */
 export const listApis: ApiMap = {
-	getList: ['GET', '/api/list']
+	// 数据列表
+	getList: ['GET', '/api/list'],
+	// 工作情况
+	getWorkInfo: ['GET', '/api/workInfo/{id}'],
+	// 页面访问量
+	getPageview: ['GET', '/api/pageview/{id}']
 }

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { User } from '@element-plus/icons-vue'
+import { ArrowDown, User } from '@element-plus/icons-vue'
 import { useUserInfoStore } from '@/store/userInfo'
 
 const router = useRouter()

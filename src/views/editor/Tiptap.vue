@@ -17,7 +17,7 @@ const editor = useEditor({
 	},
 	editorProps: {
 		attributes: {
-			class: 'p-4 w-full h-full focus:outline-none'
+			class: 'p-4 w-full h-full focus:outline-none card-bg'
 		}
 	}
 })

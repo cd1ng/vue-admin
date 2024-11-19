@@ -23,20 +23,17 @@ async function getList() {
 /**
  * 获取用户详情
  */
-// async function getDetail(id: string): Promise<UserInfo | null> {
-// try {
-// 	const response = await userService.getUserDetail(id)
-// 	return response.data
-// } catch (error) {
-// 	console.error('获取用户详情失败:', error)
-// 	return null
-// }
-// }
+async function getDetail(id: string) {
+	try {
+		const response = await userService.getUserDetail(id)
+		return response.data
+	} catch (error) {
+		console.error('获取用户详情失败:', error)
+		return null
+	}
+}
 
 export const userApi = {
-	getList
-	// getDetail
-	// create: userService.createUser,
-	// update: userService.updateUser,
-	// delete: userService.deleteUser
+	getList,
+	getDetail
 }
