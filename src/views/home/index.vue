@@ -59,7 +59,7 @@ const initLineChart = () => {
 </script>
 
 <template>
-	<div class="p-6 space-y-6">
+	<div class="space-y-6">
 		<!-- 统计卡片 -->
 		<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
 			<div v-for="item in statistics" :key="item.title" class="p-4 rounded-lg bg-white shadow-sm">

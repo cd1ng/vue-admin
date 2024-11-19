@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import type { TableItem, Status, TagType } from './types'
+import { STATUS_CONFIG } from '@/constant/list'
+import type { TableItem } from './types'
 
 defineProps<{
 	data: TableItem[]
@@ -8,16 +9,15 @@ defineProps<{
 }>()
 
 const emit = defineEmits<{
+	// 列表新增
+	add: []
+	// 列表编辑
 	edit: [item: TableItem]
+	// 列表项删除
 	delete: [item: TableItem]
+	// 列表项复制
+	'copy-info': [item: TableItem]
 }>()
-
-// 状态映射
-const statusMap: Record<Status, [TagType, string]> = {
-	Pending: ['warning', '待处理'],
-	InProgress: ['primary', '进行中'],
-	Done: ['success', '已完成']
-}
 </script>
 
 <template>
@@ -25,7 +25,7 @@ const statusMap: Record<Status, [TagType, string]> = {
 		<template #header>
 			<div class="flex justify-between items-center">
 				<span>数据列表</span>
-				<ElButton type="primary">新增</ElButton>
+				<ElButton type="primary" @click="emit('add')">新增</ElButton>
 			</div>
 		</template>
 
@@ -34,8 +34,8 @@ const statusMap: Record<Status, [TagType, string]> = {
 			<ElTableColumn prop="name" label="名称" />
 			<ElTableColumn prop="status" label="状态">
 				<template #default="{ row }">
-					<ElTag :type="statusMap[row.status as Status][0]">
-						{{ statusMap[row.status as Status][1] }}
+					<ElTag :type="STATUS_CONFIG[row.status].type">
+						{{ STATUS_CONFIG[row.status].label }}
 					</ElTag>
 				</template>
 			</ElTableColumn>
@@ -45,6 +45,7 @@ const statusMap: Record<Status, [TagType, string]> = {
 				<template #default="{ row }">
 					<ElButton link type="primary" @click="emit('edit', row)">编辑</ElButton>
 					<ElButton link type="danger" @click="emit('delete', row)">删除</ElButton>
+					<ElButton link type="info" @click="emit('copy-info', row)">复制</ElButton>
 				</template>
 			</ElTableColumn>
 		</ElTable>

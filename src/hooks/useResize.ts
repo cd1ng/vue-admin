@@ -11,8 +11,9 @@ export function useResize() {
 		windowWidth.value = window.innerWidth
 	}
 
-	onMounted(() => {})
-	window.addEventListener('resize', handleResize)
+	onMounted(() => {
+		window.addEventListener('resize', handleResize)
+	})
 
 	onUnmounted(() => {
 		window.removeEventListener('resize', handleResize)
