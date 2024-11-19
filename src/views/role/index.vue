@@ -1,5 +1,7 @@
 <script lang="ts" setup>
+import { ROLE_STATUS } from '@/constant/role'
 import { userApi } from '@/http/user/api'
+import type { RoleType } from './types'
 
 defineOptions({
 	name: 'RolePage'
@@ -11,23 +13,27 @@ interface UserInfo {
 	role: string
 	image: string
 }
-
+const loading = ref(false)
 const tableData = ref<UserInfo[]>([])
 onMounted(async () => {
 	try {
+		loading.value = true
 		const data = await userApi.getList()
 		tableData.value = data?.data || []
 	} catch (error) {
+		loading.value = false
 		console.error(error)
 		tableData.value = []
+	} finally {
+		loading.value = false
 	}
 })
 </script>
 
 <template>
-	<ElTable :data="tableData" class="card-bg text select-none">
+	<ElTable :loading="loading" :data="tableData" class="card-bg text select-none">
 		<ElTableColumn prop="userName" label="用户名" />
 		<ElTableColumn prop="userId" label="用户Id" />
-		<ElTableColumn prop="role" label="用户权限分组" />
+		<ElTableColumn prop="role" label="用户权限" :formatter="(row) => ROLE_STATUS[row.role as RoleType]" />
 	</ElTable>
 </template>
