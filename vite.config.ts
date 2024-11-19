@@ -27,7 +27,7 @@ export default defineConfig({
 					prefix: 'Icon'
 				})
 			],
-			dts: './types/auto-imports.d.ts',
+			dts: './src/types/auto-imports.d.ts',
 			eslintrc: {
 				enabled: true
 			},
@@ -46,7 +46,7 @@ export default defineConfig({
 				}),
 				ElementPlusResolver()
 			],
-			dts: './types/components.d.ts',
+			dts: './src/types/components.d.ts',
 			// 指定组件目录自动引入
 			dirs: ['src/components']
 		}),

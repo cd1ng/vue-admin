@@ -15,3 +15,12 @@ interface UserInfo {
 	role: string
 	image: string
 }
+
+// 列表数据	
+interface ListItem {
+	id: number
+	name: string
+	status: string
+	date: string
+	address: string
+}

@@ -20,3 +20,10 @@ export const userApis: ApiMap = {
 export const authApis: ApiMap = {
 	login: ['POST', '/api/login']
 }
+
+/**
+ * 数据列表
+ */
+export const listApis: ApiMap = {
+	getList: ['GET', '/api/list']
+}

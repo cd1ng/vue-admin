@@ -3,8 +3,9 @@
  */
 
 import * as authService from './server'
+
 /**
- * 获取用户列表
+ * 用户登录
  */
 async function login(username: string, password: string) {
 	try {
@@ -13,7 +14,7 @@ async function login(username: string, password: string) {
 			data: response.data
 		}
 	} catch (error) {
-		console.error('获取用户列表失败:', error)
+		console.error('用户登录失败:', error)
 		return {
 			data: []
 		}
