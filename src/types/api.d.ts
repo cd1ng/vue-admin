@@ -2,7 +2,6 @@ type ApiMethod = 'GET' | 'POST' | 'PUT' | 'DELETE'
 
 type ApiMap = Record<string, [ApiMethod, string]>
 
-
 // 定义接口返回类型
 interface LoginParams {
 	username: string
@@ -16,7 +15,7 @@ interface UserInfo {
 	image: string
 }
 
-// 列表数据	
+// 列表数据
 interface ListItem {
 	id: number
 	name: string

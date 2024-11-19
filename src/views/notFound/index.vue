@@ -1,4 +1,7 @@
 <script setup lang="ts">
+defineOptions({
+	name: 'NotFoundPage'
+})
 const router = useRouter()
 
 const goHome = () => {

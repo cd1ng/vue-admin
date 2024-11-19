@@ -7,22 +7,35 @@ export default {
 		{
 			path: '/',
 			name: 'HomePage',
-			component: () => import('@/views/home/index.vue')
+			component: () => import('@/views/home/index.vue'),
+			meta: {
+				// 需要进行缓存
+				KeepAlive: true
+			}
 		},
 		{
 			path: '/user',
 			name: 'UserPage',
-			component: () => import('@/views/user/index.vue')
+			component: () => import('@/views/user/index.vue'),
+			meta: {
+				KeepAlive: true
+			}
 		},
 		{
 			path: '/role',
 			name: 'RolePage',
-			component: () => import('@/views/role/index.vue')
+			component: () => import('@/views/role/index.vue'),
+			meta: {
+				KeepAlive: true
+			}
 		},
 		{
 			path: '/list',
 			name: 'ListPage',
-			component: () => import('@/views/list/index.vue')
+			component: () => import('@/views/list/index.vue'),
+			meta: {
+				KeepAlive: true
+			}
 		}
 	]
 }

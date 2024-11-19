@@ -7,6 +7,10 @@ import { useUserInfoStore } from '@/store/userInfo'
 // 导入 Element Plus 的类型定义
 import type { ComponentSize, FormInstance, FormRules } from 'element-plus'
 
+defineOptions({
+	name: 'LoginPage'
+})
+
 // 定义表单数据的类型接口
 interface RuleForm {
 	name: string

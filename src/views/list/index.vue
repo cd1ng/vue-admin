@@ -4,6 +4,12 @@ import { listApi } from '@/http/list/api'
 import SearchForm from './SearchForm.vue'
 import DataTable from './DataTable.vue'
 
+import type { TableItem } from './types'
+
+defineOptions({
+	name: 'ListPage'
+})
+
 // 头部高度
 const HEADER_HEIGHT = 60
 // 表格搜索区域高度
@@ -28,9 +34,9 @@ const fetchData = async () => {
 	loading.value = true
 	try {
 		const { data } = await listApi.getDataList()
-		tableData.value = data as TableItem[] || []
+		tableData.value = (data as TableItem[]) || []
 	} catch (error) {
-		console.error('列表渲染报错',error)
+		console.error('列表渲染报错', error)
 		tableData.value = []
 	} finally {
 		loading.value = false
@@ -64,17 +70,7 @@ onMounted(() => {
 
 <template>
 	<div class="p-6">
-		<SearchForm 
-			:loading="loading"
-			@search="handleSearch"
-			@reset="handleReset"
-		/>
-		<DataTable
-			:data="tableData"
-			:loading="loading"
-			:height="tableHeight"
-			@edit="handleEdit"
-			@delete="handleDelete"
-		/>
+		<SearchForm :loading="loading" @search="handleSearch" @reset="handleReset" />
+		<DataTable :data="tableData" :loading="loading" :height="tableHeight" @edit="handleEdit" @delete="handleDelete" />
 	</div>
 </template>

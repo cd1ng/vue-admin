@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import * as echarts from 'echarts'
-
+defineOptions({
+	name: 'HomePage'
+})
 const statistics = ref([
 	{ title: '总用户数', value: '1,234', icon: 'User', color: 'bg-blue-100 text-blue-600' },
 	{ title: '今日访问', value: '423', icon: 'View', color: 'bg-green-100 text-green-600' },

@@ -1,6 +1,10 @@
 <script lang="ts" setup>
 import { userApi } from '@/http/user/api'
 
+defineOptions({
+	name: 'RolePage'
+})
+
 interface UserInfo {
 	token: string
 	username: string

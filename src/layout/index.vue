@@ -11,7 +11,11 @@ import Aside from './Aside.vue'
 		<ElContainer>
 			<Aside />
 			<ElMain class="bg-gray-100">
-				<RouterView />
+				<RouterView v-slot="{ Component }">
+					<KeepAlive :include="['HomePage', 'ListPage', 'RolePage', 'UserPage']">
+						<component :is="Component" />
+					</KeepAlive>
+				</RouterView>
 			</ElMain>
 		</ElContainer>
 	</ElContainer>

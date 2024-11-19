@@ -1,25 +1,25 @@
 /**
  * 监听窗口大小变化
- * @returns 
+ * @returns
  */
 export function useResize() {
-  const windowHeight = ref(window.innerHeight)
-  const windowWidth = ref(window.innerWidth)
+	const windowHeight = ref(window.innerHeight)
+	const windowWidth = ref(window.innerWidth)
 
-  const handleResize = ()=>{
-    windowHeight.value = window.innerHeight
-    windowWidth.value = window.innerWidth
-  }
+	const handleResize = () => {
+		windowHeight.value = window.innerHeight
+		windowWidth.value = window.innerWidth
+	}
 
-  onMounted(()=>{})
-    window.addEventListener('resize', handleResize)
+	onMounted(() => {})
+	window.addEventListener('resize', handleResize)
 
-  onUnmounted(()=>{
-    window.removeEventListener('resize', handleResize)
-  })
+	onUnmounted(() => {
+		window.removeEventListener('resize', handleResize)
+	})
 
 	return {
-    windowWidth,
-    windowHeight
+		windowWidth,
+		windowHeight
 	}
 }
