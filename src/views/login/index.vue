@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { ElMessage, ElLoading } from 'element-plus'
 import { User, Lock } from '@element-plus/icons-vue'
-
 import { authApi } from '@/http/auth/api'
 import { useUserInfoStore } from '@/store/userInfo'
-// 导入 Element Plus 的类型定义
+
 import type { ComponentSize, FormInstance, FormRules } from 'element-plus'
 
 defineOptions({
@@ -12,9 +11,17 @@ defineOptions({
 })
 
 // 定义表单数据的类型接口
-interface RuleForm {
+type RuleForm = {
 	name: string
 	password: string
+}
+
+// 登录接口返回的数据类型
+type LoginDataType = {
+	username: string
+	token: string
+	role: string
+	image: string
 }
 
 // 设置表单尺寸
@@ -66,7 +73,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 		try {
 			// 调用登录接口
 			const res = await authApi.login(userInfo.name, userInfo.password)
-			const { username, token, role, image } = res.data as { username: string; token: string; role: string; image: string }
+			const { username, token, role, image } = res.data as LoginDataType
 
 			// 保存用户信息到 store 和 localStorage
 			setUserInfo({ username, token, role, image })
@@ -84,7 +91,26 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 </script>
 
 <template>
-	<div class="min-h-screen flex items-center justify-center bg-gray-100">
+	<!-- 带渐变背景的容器 -->
+	<div class="min-h-screen relative bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+		<!-- 背景装饰 -->
+		<!-- inset-0 覆盖全屏幕 -->
+		<div class="absolute inset-0 overflow-hidden">
+			<!-- 气泡动画移动可超出屏幕 -->
+			<div class="absolute -inset-[10px] opacity-50">
+				<!-- filter blur-xl设置气泡磨砂效果 -->
+				<div
+					class="absolute top-1/4 left-1/4 w-32 h-32 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl animate-blob"
+				></div>
+				<div
+					class="absolute top-1/3 right-1/3 w-32 h-32 bg-yellow-400 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"
+				></div>
+				<div
+					class="absolute bottom-1/3 left-1/3 w-32 h-32 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"
+				></div>
+			</div>
+		</div>
+
 		<!-- 登录表单组件 -->
 		<ElForm
 			ref="ruleFormRef"
@@ -92,7 +118,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 			:size="formSize"
 			:model="userInfo"
 			:rules="rules"
-			class="w-[90%] min-w-[300px] max-w-[500px] p-6 bg-white rounded-lg shadow-md"
+			class="relative w-[90%] min-w-[300px] max-w-[500px] p-8 bg-white/90 backdrop-blur-sm rounded-lg shadow-2xl"
 			status-icon
 		>
 			<!-- 标题 -->
@@ -122,3 +148,33 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 		</ElForm>
 	</div>
 </template>
+
+
+<style scoped>
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+</style>
