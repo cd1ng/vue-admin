@@ -10,6 +10,31 @@ defineProps<{ editor: any }>()
 			<button :class="{ 'is-active': editor.isActive('bold') }" @click="editor.chain().focus().toggleBold().run()">Bold</button>
 			<button :class="{ 'is-active': editor.isActive('italic') }" @click="editor.chain().focus().toggleItalic().run()">Italic</button>
 			<button :class="{ 'is-active': editor.isActive('strike') }" @click="editor.chain().focus().toggleStrike().run()">Strike</button>
+			<button
+				:class="{ 'is-active': editor.isActive({ textAlign: 'left' }) }"
+				@click="editor.chain().focus().setTextAlign('left').run()"
+			>
+				Left
+			</button>
+			<button
+				:class="{ 'is-active': editor.isActive({ textAlign: 'center' }) }"
+				@click="editor.chain().focus().setTextAlign('center').run()"
+			>
+				Center
+			</button>
+			<button
+				:class="{ 'is-active': editor.isActive({ textAlign: 'right' }) }"
+				@click="editor.chain().focus().setTextAlign('right').run()"
+			>
+				Right
+			</button>
+			<button
+				:class="{ 'is-active': editor.isActive({ textAlign: 'justify' }) }"
+				@click="editor.chain().focus().setTextAlign('justify').run()"
+			>
+				Justify
+			</button>
+			<button @click="editor.chain().focus().unsetTextAlign().run()">Unset</button>
 		</div>
 	</BubbleMenu>
 </template>

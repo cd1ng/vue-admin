@@ -30,13 +30,13 @@
            border border-gray-200 dark:border-gray-700
            rounded-lg 
            shadow-md dark:shadow-gray-900
-           flex 
-           p-2;
+           flex w-fit 
+           p-1;
 	}
 
 	/* 用于编辑器工具栏按钮 */
 	.bubble-menu button {
-		@apply px-2 py-1 
+		@apply p-1 
            rounded
            hover:bg-gray-100 dark:hover:bg-gray-700
            text-gray-700 dark:text-gray-200;
