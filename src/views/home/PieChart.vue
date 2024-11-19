@@ -1,15 +1,11 @@
 <script setup lang="ts">
+import { useChartSize } from '@/hooks'
 import * as echarts from 'echarts'
 //声明周期函数，自动执行初始化
+const { initChart } = useChartSize('pie-chart')
+
 onMounted(() => {
-	init()
-})
-//初始化函数
-function init() {
-	// 基于准备好的dom，初始化echarts实例
-	let chart = echarts.init(document.getElementById('pie-chart'))
-	// 绘制图表
-	let options = {
+	const options = {
 		title: { text: '用户分布' },
 		tooltip: { trigger: 'item' },
 		legend: { orient: 'vertical', left: 'right' },
@@ -24,10 +20,9 @@ function init() {
 				]
 			}
 		]
-	}
-	// 渲染图表
-	chart.setOption(options)
-}
+	} as echarts.EChartsOption
+	initChart(options)
+})
 </script>
 <template>
 	<div id="pie-chart"></div>

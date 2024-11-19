@@ -1,15 +1,11 @@
 <script setup lang="ts">
 import * as echarts from 'echarts'
-//声明周期函数，自动执行初始化
+import { useChartSize } from '@/hooks/useChartSize'
+
+const { initChart } = useChartSize('line-chart')
+
 onMounted(() => {
-	init()
-})
-//初始化函数
-function init() {
-	// 基于准备好的dom，初始化echarts实例
-	let chart = echarts.init(document.getElementById('line-chart'))
-	// 绘制图表
-	let options = {
+	const options = {
 		title: { text: '近七日访问趋势' },
 		tooltip: { trigger: 'axis' },
 		xAxis: {
@@ -24,11 +20,9 @@ function init() {
 				smooth: true
 			}
 		]
-	}
-
-	// 渲染图表
-	chart.setOption(options)
-}
+	} as echarts.EChartsOption
+	initChart(options)
+})
 </script>
 <template>
 	<div id="line-chart"></div>
