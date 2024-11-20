@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { useEditor, EditorContent } from '@tiptap/vue-3'
 import StarterKit from '@tiptap/starter-kit'
+import TextAlign from '@tiptap/extension-text-align'
 
 import BubbleMenu from './BubbleMenu.vue'
-import TextAlign from '@tiptap/extension-text-align'
 
 const props = withDefaults(defineProps<{ content?: string }>(), {
 	content: ''
