@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useChartSize } from '@/hooks'
-import * as echarts from 'echarts'
+import type { ECOption } from '@/types/echart'
 
 //声明周期函数，自动执行初始化
 const { initChart } = useChartSize('bar-chart')
@@ -22,7 +22,7 @@ onMounted(() => {
 				data: [5, 20, 36, 10, 10, 20]
 			}
 		]
-	} as echarts.EChartsOption
+	} as ECOption
 	initChart(options)
 })
 </script>

@@ -1,5 +1,5 @@
-import * as echarts from 'echarts'
-
+import echarts from '@/utils/echarts'
+import type { ECOption } from '@/types/echart'
 /**
  * 图表尺寸
  * @param domId 图表domId
@@ -9,7 +9,7 @@ export function useChartSize(domId: string) {
 	let chart: echarts.ECharts | null = null
 
 	// 在dom挂载之后，传入options，初始化图表
-	const initChart = (options: echarts.EChartsOption) => {
+	const initChart = (options: ECOption) => {
 		if (!chart) {
 			chart = echarts.init(document.getElementById(domId))
 		}

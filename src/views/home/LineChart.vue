@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import * as echarts from 'echarts'
 import { useChartSize } from '@/hooks/useChartSize'
+import { ECOption } from '@/types/echart'
 
 const { initChart } = useChartSize('line-chart')
 
@@ -20,7 +20,7 @@ onMounted(() => {
 				smooth: true
 			}
 		]
-	} as echarts.EChartsOption
+	} as ECOption
 	initChart(options)
 })
 </script>

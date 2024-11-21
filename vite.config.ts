@@ -9,6 +9,7 @@ import IconsResolver from 'unplugin-icons/resolver'
 import Icons from 'unplugin-icons/vite'
 import ElementPlus from 'unplugin-element-plus/vite'
 import Inspect from 'vite-plugin-inspect'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -57,7 +58,20 @@ export default defineConfig({
 		Inspect({
 			build: true,
 			outputDir: '.vite-inspect'
-		})
+		}),
+		// 打包分析
+		visualizer({
+			// 是否显示 gzip 压缩大小
+			gzipSize: true,
+			// 是否显示 brotli 压缩大小
+			brotliSize: true,
+			// 是否生成文件
+			emitFile: true,
+			// 生成的文件名
+			filename: 'stats.html',
+			// 以默认服务器代码打开文件
+			open: true
+		}),
 	],
 	// 打包配置
 	build: {

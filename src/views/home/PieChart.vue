@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useChartSize } from '@/hooks'
-import * as echarts from 'echarts'
+import { ECOption } from '@/types/echart'
 //声明周期函数，自动执行初始化
 const { initChart } = useChartSize('pie-chart')
 
@@ -20,7 +20,7 @@ onMounted(() => {
 				]
 			}
 		]
-	} as echarts.EChartsOption
+	} as ECOption
 	initChart(options)
 })
 </script>
