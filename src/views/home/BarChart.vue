@@ -8,7 +8,7 @@ const { initChart } = useChartSize('bar-chart')
 onMounted(() => {
 	const options = {
 		title: {
-			text: 'ECharts 入门示例'
+			text: '产品销售量'
 		},
 		tooltip: {},
 		xAxis: {

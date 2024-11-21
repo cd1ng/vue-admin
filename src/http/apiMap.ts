@@ -26,11 +26,15 @@ export const authApis: ApiMap = {
 /**
  * 数据列表
  */
-export const listApis: ApiMap = {
+export const dataApi: ApiMap = {
 	// 数据列表
 	getList: ['GET', '/api/list'],
 	// 工作情况
-	getWorkInfo: ['GET', '/api/workInfo/{id}'],
-	// 页面访问量
-	getPageview: ['GET', '/api/pageview/{id}']
+	getWorkInfo: ['GET', '/api/workInfo'],
+	// 访问量
+	getVisits: ['GET', '/api/visits'],
+	// 销售量
+	getSaleCount: ['GET', '/api/saleCount'],
+	// 用户分布
+	getUserDistribution: ['GET', '/api/userDistribution']
 }

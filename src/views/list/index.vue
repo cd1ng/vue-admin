@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useResize } from '@/hooks'
-import { listApi } from '@/http/list/api'
+import { dataApi } from '@/http/data/api'
 import { useCopy } from '@/hooks'
 import FilterInfo from './FilterInfo.vue'
 import DataTable from './DataTable.vue'
@@ -37,7 +37,7 @@ const tableHeight = computed(() => {
 const fetchData = async () => {
 	loading.value = true
 	try {
-		const { data } = await listApi.getDataList()
+		const { data } = await dataApi.getDataList()
 		tableData.value = (data as TableItem[]) || []
 	} catch (error) {
 		tableData.value = []
