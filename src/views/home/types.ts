@@ -4,3 +4,10 @@ export interface InfoData {
 	value: string
 	color: string
 }
+
+// 用户分布数据
+export interface UserDistributionData {
+	normal: number
+	vip: number
+	admin: number
+}
