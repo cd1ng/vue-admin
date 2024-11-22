@@ -3,6 +3,7 @@
  */
 import request from '@/utils/request'
 import { userApis } from '@/http/apiMap'
+import { UserInfo } from '@/types/api'
 
 /**
  * 获取用户列表

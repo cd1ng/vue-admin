@@ -1,3 +1,4 @@
+import { emptyUserDistributionData, emptyVisitData } from '@/constant/home'
 import * as dataService from './server'
 
 /**
@@ -24,12 +25,12 @@ async function getVisits() {
 	try {
 		const response = await dataService.getVisits()
 		return {
-			data: response?.data || []
+			data: response?.data?.[0]|| emptyVisitData
 		}
 	} catch (error) {
 		console.error('访问量获取失败:', error)
 		return {
-			data: []
+			data: emptyVisitData
 		}
 	}
 }
@@ -58,10 +59,27 @@ async function getUserDistribution() {
 	try {
 		const response = await dataService.getUserDistribution()
 		return {
-			data: response?.data || []
+			data: response?.data?.[0]|| emptyUserDistributionData
 		}
 	} catch (error) {
 		console.error('用户分布获取失败:', error)
+		return {
+			data: emptyUserDistributionData
+		}
+	}
+}
+
+/**
+ * 获取工作情况
+ */
+async function getWorkInfo() {
+	try {
+		const response = await dataService.getWorkInfo()
+		return {
+			data: response?.data || []
+		}
+	} catch (error) {
+		console.error('工作情况获取失败:', error)
 		return {
 			data: []
 		}
@@ -72,5 +90,6 @@ export const dataApi = {
 	getDataList,
 	getVisits,
 	getSaleCount,
-	getUserDistribution
+	getUserDistribution,
+	getWorkInfo
 }

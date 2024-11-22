@@ -3,6 +3,7 @@
  */
 
 import axios, { AxiosRequestConfig } from 'axios'
+import type { ApiMethod } from '@/types/api'
 
 // 创建请求实例
 const instance = axios.create({

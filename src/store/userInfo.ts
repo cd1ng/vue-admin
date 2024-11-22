@@ -1,3 +1,5 @@
+import type { UserInfo } from "@/types/api"
+
 export const useUserInfoStore = defineStore(
 	'userInfo',
 	() => {

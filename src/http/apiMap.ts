@@ -2,6 +2,7 @@
  * 接口apiMap
  * 封装了method和url的形式,规避了url的硬编码
  */
+import type { ApiMap } from '@/types/api'
 
 /**
  * 用户相关接口

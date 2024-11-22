@@ -1,3 +1,4 @@
+import { type } from './auto-imports';
 type ApiMethod = 'GET' | 'POST' | 'PUT' | 'DELETE'
 
 type ApiMap = Record<string, [ApiMethod, string]>
@@ -23,3 +24,35 @@ interface ListItem {
 	date: string
 	address: string
 }
+
+// 访问量数据
+type VisitData = {
+	Monday: number
+	Tuesday: number
+	Wednesday: number
+	Thursday: number
+	Friday: number
+	Saturday: number
+	Sunday: number
+}
+
+// 销售数据
+type SaleDataType = {
+	name: string
+	type: string
+	count: number
+}
+
+// 用户分布数据
+type UserDistributionData = {
+	normal: number
+	vip: number
+	admin: number
+}
+
+type WorkInfoData = {
+	title: string
+	count: number
+	color: string
+}
+

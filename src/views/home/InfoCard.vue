@@ -2,7 +2,7 @@
 import type { InfoData } from './types'
 
 const props = defineProps<{
-	infoData: InfoData[]
+	infoData: InfoData[] | undefined
 }>()
 </script>
 
@@ -10,6 +10,7 @@ const props = defineProps<{
 	<!-- 统计卡片 -->
 	<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
 		<div
+			v-if="props.infoData !== undefined"
 			v-for="item in props.infoData"
 			:key="item.title"
 			class="p-4 rounded-lg bg-white shadow-sm"
@@ -21,6 +22,9 @@ const props = defineProps<{
 					<p class="text-2xl font-semibold mt-1">{{ item.value }}</p>
 				</div>
 			</div>
+		</div>
+		<div v-else>
+			<ElEmpty description="暂无数据" />
 		</div>
 	</div>
 </template>
