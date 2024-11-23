@@ -1,4 +1,4 @@
-import { SaleDataType, UserDistributionData, VisitData } from "@/types/api"
+import type { SaleDataType, UserDistributionData, VisitData } from '@/api/data/type'
 
 // 空浏览数据
 export const emptyVisitData: VisitData = {

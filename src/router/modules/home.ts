@@ -24,10 +24,23 @@ export default {
 		{
 			path: '/list',
 			name: 'ListPage',
-			component: () => import('@/views/list/index.vue'),
 			meta: {
 				KeepAlive: true
-			}
+			},
+			// 重定向到列表详情页
+			redirect: '/list/detail',
+			children: [
+				{
+					path: '/list/detail',
+					name: 'ListDetailPage',
+					component: () => import('@/views/list/index.vue')
+				},
+				{
+					path: '/list/others',
+					name: 'OthersTablePage',
+					component: () => import('@/views/list/OthersTable.vue')
+				}
+			]
 		},
 		{
 			path: '/editor',

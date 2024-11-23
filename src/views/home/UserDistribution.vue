@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useChartSize } from '@/hooks'
 import type { ECOption } from '@/types/echart'
-import type { UserDistributionData } from '@/types/api'
+import type { UserDistributionData } from '@/api/data/type'
 
 //声明周期函数，自动执行初始化
 const { initChart } = useChartSize('pie-chart')

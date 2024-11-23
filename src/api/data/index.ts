@@ -25,7 +25,7 @@ async function getVisits() {
 	try {
 		const response = await dataService.getVisits()
 		return {
-			data: response?.data?.[0]|| emptyVisitData
+			data: response?.data?.[0] || emptyVisitData
 		}
 	} catch (error) {
 		console.error('访问量获取失败:', error)
@@ -59,7 +59,7 @@ async function getUserDistribution() {
 	try {
 		const response = await dataService.getUserDistribution()
 		return {
-			data: response?.data?.[0]|| emptyUserDistributionData
+			data: response?.data?.[0] || emptyUserDistributionData
 		}
 	} catch (error) {
 		console.error('用户分布获取失败:', error)
@@ -86,7 +86,7 @@ async function getWorkInfo() {
 	}
 }
 
-export const dataApi = {
+export const dataApis = {
 	getDataList,
 	getVisits,
 	getSaleCount,

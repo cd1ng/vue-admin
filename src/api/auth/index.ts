@@ -21,6 +21,6 @@ async function login(username: string, password: string) {
 	}
 }
 
-export const authApi = {
+export const authApis = {
 	login
 }

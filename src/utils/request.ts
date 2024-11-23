@@ -3,7 +3,6 @@
  */
 
 import axios, { AxiosRequestConfig } from 'axios'
-import type { ApiMethod } from '@/types/api'
 
 // 创建请求实例
 const instance = axios.create({
@@ -51,7 +50,7 @@ const request = {
 		return instance.delete<T>(url, config)
 	},
 	// 通用请求方法
-	request: <T>(method: ApiMethod, url: string, config?: AxiosRequestConfig) => {
+	request: <T>(method: Api.ApiMethod, url: string, config?: AxiosRequestConfig) => {
 		switch (method) {
 			case 'GET':
 				return request.GET<T>(url, config)

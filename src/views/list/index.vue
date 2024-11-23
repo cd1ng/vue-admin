@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useResize } from '@/hooks'
-import { dataApi } from '@/http/data/api'
+import { dataApis } from '@/api/data'
 import { useCopy } from '@/hooks'
 import FilterInfo from './FilterInfo.vue'
 import DataTable from './DataTable.vue'
@@ -12,7 +12,6 @@ import type { FilterInfoState, TableItem } from './types'
 defineOptions({
 	name: 'ListPage'
 })
-
 // 表格数据
 const tableData = ref<TableItem[]>([])
 // 过滤信息
@@ -37,7 +36,7 @@ const tableHeight = computed(() => {
 const fetchData = async () => {
 	loading.value = true
 	try {
-		const { data } = await dataApi.getDataList()
+		const { data } = await dataApis.getDataList()
 		tableData.value = (data as TableItem[]) || []
 	} catch (error) {
 		tableData.value = []

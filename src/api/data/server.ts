@@ -2,16 +2,16 @@
  * 接口服务service层
  */
 import request from '@/utils/request'
-import { dataApi } from '@/http/apiMap'
-import { SaleDataType, UserDistributionData, VisitData } from '@/types/api'
-import { InfoData } from '@/views/home/types'
+import { dataApis } from '@/api/apiMap'
+import type { SaleDataType, UserDistributionData, VisitData } from './type'
+import type { InfoData } from '@/views/home/types'
 
 /**
  * 获取数据列表
  * @returns
  */
 export async function getDataList() {
-	const [method, url] = dataApi.getList
+	const [method, url] = dataApis.getList
 	return request[method](url)
 }
 
@@ -19,7 +19,7 @@ export async function getDataList() {
  * 获取访问量
  */
 export async function getVisits() {
-	const [method, url] = dataApi.getVisits
+	const [method, url] = dataApis.getVisits
 	return request[method]<VisitData[]>(url)
 }
 
@@ -27,7 +27,7 @@ export async function getVisits() {
  * 获取销售量
  */
 export async function getSaleCount() {
-	const [method, url] = dataApi.getSaleCount
+	const [method, url] = dataApis.getSaleCount
 	return request[method]<SaleDataType[]>(url)
 }
 
@@ -35,7 +35,7 @@ export async function getSaleCount() {
  * 获取用户分布
  */
 export async function getUserDistribution() {
-	const [method, url] = dataApi.getUserDistribution
+	const [method, url] = dataApis.getUserDistribution
 	return request[method]<UserDistributionData[]>(url)
 }
 
@@ -45,6 +45,6 @@ export async function getUserDistribution() {
  * @returns
  */
 export async function getWorkInfo() {
-	const [method, url] = dataApi.getWorkInfo
+	const [method, url] = dataApis.getWorkInfo
 	return request[method]<InfoData[]>(url)
 }

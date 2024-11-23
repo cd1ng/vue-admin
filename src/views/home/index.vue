@@ -3,10 +3,10 @@ import InfoCard from './InfoCard.vue'
 import UserDistribution from './UserDistribution.vue'
 import ProductSale from './ProductSale.vue'
 import VisitTrend from './VisitTrend.vue'
-import { dataApi } from '@/http/data/api'
+import { dataApis } from '@/api/data'
 import { emptySaleData, emptyUserDistributionData, emptyVisitData } from '@/constant/home'
 
-import type { SaleDataType, UserDistributionData, VisitData } from '@/types/api'
+import type { SaleDataType, UserDistributionData, VisitData } from '@/api/data/type'
 import type { InfoData } from './types'
 
 defineOptions({
@@ -22,12 +22,13 @@ const saleData = ref<SaleDataType[]>(emptySaleData)
 const userDistributionData = ref<UserDistributionData>(emptyUserDistributionData)
 
 onMounted(async () => {
+	const { getVisits, getUserDistribution, getSaleCount, getWorkInfo } = dataApis
 	try {
 		const [visitRes, userDistributionRes, saleRes, workInfoRes] = await Promise.all([
-			dataApi.getVisits(),
-			dataApi.getUserDistribution(),
-			dataApi.getSaleCount(),
-			dataApi.getWorkInfo()
+			getVisits(),
+			getUserDistribution(),
+			getSaleCount(),
+			getWorkInfo()
 		])
 
 		visitData.value = visitRes.data

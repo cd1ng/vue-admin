@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ElMessage, ElLoading } from 'element-plus'
 import { User, Lock } from '@element-plus/icons-vue'
-import { authApi } from '@/http/auth/api'
+import { authApis } from '@/api/auth'
 import { useUserInfoStore } from '@/store/userInfo'
 
 import type { ComponentSize, FormInstance, FormRules } from 'element-plus'
@@ -72,7 +72,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 
 		try {
 			// 调用登录接口
-			const res = await authApi.login(userInfo.name, userInfo.password)
+			const res = await authApis.login(userInfo.name, userInfo.password)
 			const { username, token, role, image } = res.data as LoginDataType
 
 			// 保存用户信息到 store 和 localStorage

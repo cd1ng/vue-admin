@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useChartSize } from '@/hooks'
-import type { SaleDataType } from '@/types/api'
+import type { SaleDataType } from '@/api/data/type'
 import type { ECOption } from '@/types/echart'
 
 const props = defineProps<{

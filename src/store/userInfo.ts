@@ -1,4 +1,4 @@
-import type { UserInfo } from "@/types/api"
+import type { UserInfo } from '@/api/user/type'
 
 export const useUserInfoStore = defineStore(
 	'userInfo',

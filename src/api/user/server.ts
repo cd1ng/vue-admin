@@ -2,8 +2,8 @@
  * 接口服务service层
  */
 import request from '@/utils/request'
-import { userApis } from '@/http/apiMap'
-import { UserInfo } from '@/types/api'
+import { userApis } from '@/api/apiMap'
+import type { UserInfo } from './type'
 
 /**
  * 获取用户列表

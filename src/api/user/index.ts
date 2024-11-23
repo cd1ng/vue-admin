@@ -33,7 +33,7 @@ async function getDetail(id: string) {
 	}
 }
 
-export const userApi = {
+export const userApis = {
 	getList,
 	getDetail
 }

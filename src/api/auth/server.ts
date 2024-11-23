@@ -2,7 +2,7 @@
  * 接口服务service层
  */
 import request from '@/utils/request'
-import { authApis } from '@/http/apiMap'
+import { authApis } from '@/api/apiMap'
 
 /**
  * 用户登录

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ROLE_STATUS } from '@/constant/role'
-import { userApi } from '@/http/user/api'
+import { userApis } from '@/api/user'
 import type { RoleType } from './types'
 
 defineOptions({
@@ -18,7 +18,7 @@ const tableData = ref<UserInfo[]>([])
 onMounted(async () => {
 	try {
 		loading.value = true
-		const data = await userApi.getList()
+		const data = await userApis.getList()
 		tableData.value = data?.data || []
 	} catch (error) {
 		loading.value = false

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useChartSize } from '@/hooks/useChartSize'
-import type { VisitData } from '@/types/api'
+import type { VisitData } from '@/api/data/type'
 import type { ECOption } from '@/types/echart'
 
 const { initChart } = useChartSize('line-chart')

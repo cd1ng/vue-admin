@@ -2,12 +2,11 @@
  * 接口apiMap
  * 封装了method和url的形式,规避了url的硬编码
  */
-import type { ApiMap } from '@/types/api'
 
 /**
  * 用户相关接口
  */
-export const userApis: ApiMap = {
+export const userApis: Api.ApiMap = {
 	// 获取用户列表
 	getUsersList: ['GET', '/api/users'],
 	// 获取用户详情
@@ -17,7 +16,7 @@ export const userApis: ApiMap = {
 /**
  * 权限相关接口
  */
-export const authApis: ApiMap = {
+export const authApis: Api.ApiMap = {
 	// 登录接口
 	login: ['POST', '/api/login'],
 	// 权限列表
@@ -27,7 +26,7 @@ export const authApis: ApiMap = {
 /**
  * 数据列表
  */
-export const dataApi: ApiMap = {
+export const dataApis: Api.ApiMap = {
 	// 数据列表
 	getList: ['GET', '/api/list'],
 	// 工作情况
