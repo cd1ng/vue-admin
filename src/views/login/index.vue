@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { ElMessage, ElLoading } from 'element-plus'
+import bcrypt from 'bcryptjs'
 import { User, Lock } from '@element-plus/icons-vue'
-import { authApis } from '@/api/auth'
+import { userApis } from '@/api/user'
 import { useUserInfoStore } from '@/store/userInfo'
 
 import type { ComponentSize, FormInstance, FormRules } from 'element-plus'
 import type { UserInfo } from '@/api/user/type'
 import type { RuleForm } from './types'
+
 defineOptions({
 	name: 'LoginPage'
 })
@@ -58,10 +60,11 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 		})
 
 		try {
+			// 加盐
+			const hashedPassword = await bcrypt.hash(userInfo.password, 10)
 			// 调用登录接口
-			const res = await authApis.login(userInfo.name, userInfo.password)
+			const res = await userApis.login(userInfo.name, hashedPassword)
 			const { username, token, role, image } = res.data as UserInfo
-
 			// 保存用户信息到 store 和 localStorage
 			setUserInfo({ username, token, role, image })
 			ElMessage.success('登录成功')

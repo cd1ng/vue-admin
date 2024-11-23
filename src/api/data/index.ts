@@ -25,7 +25,7 @@ async function getVisits() {
 	try {
 		const response = await dataService.getVisits()
 		return {
-			data: response?.data?.[0] || emptyVisitData
+			data: response?.data || emptyVisitData
 		}
 	} catch (error) {
 		console.error('访问量获取失败:', error)

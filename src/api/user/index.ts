@@ -33,7 +33,43 @@ async function getDetail(id: string) {
 	}
 }
 
+/**
+ * 用户登录
+ */
+async function login(username: string, password: string) {
+	try {
+		const response = await userService.login(username, password)
+		return {
+			data: response.data
+		}
+	} catch (error) {
+		console.error('用户登录失败:', error)
+		return {
+			data: []
+		}
+	}
+}
+
+/**
+ * 获取用户权限
+ */
+async function getUserAuth(userId: string) {
+	try {
+		const response = await userService.getUserAuth(userId)
+		return {
+			data: response.data
+		}
+	} catch (error) {
+		console.error('用户登录失败:', error)
+		return {
+			data: []
+		}
+	}
+}
+
 export const userApis = {
+	login,
+	getUserAuth,
 	getList,
 	getDetail
 }

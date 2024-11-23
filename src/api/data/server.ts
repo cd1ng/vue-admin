@@ -20,7 +20,7 @@ export async function getDataList() {
  */
 export async function getVisits() {
 	const [method, url] = dataApis.getVisits
-	return request[method]<VisitData[]>(url)
+	return request[method]<VisitData>(url)
 }
 
 /**

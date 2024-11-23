@@ -10,17 +10,11 @@ export const userApis: Api.ApiMap = {
 	// 获取用户列表
 	getUsersList: ['GET', '/api/users'],
 	// 获取用户详情
-	getUsersDetail: ['GET', '/api/users/{id}']
-}
-
-/**
- * 权限相关接口
- */
-export const authApis: Api.ApiMap = {
+	getUsersDetail: ['GET', '/api/users'],
 	// 登录接口
 	login: ['POST', '/api/login'],
-	// 权限列表
-	getAuthList: ['GET', '/api/auth/{id}']
+	// 获取用户权限
+	getUserAuth: ['GET', '/api/auth']
 }
 
 /**
@@ -30,11 +24,11 @@ export const dataApis: Api.ApiMap = {
 	// 数据列表
 	getList: ['GET', '/api/list'],
 	// 工作情况
-	getWorkInfo: ['GET', '/api/workInfo'],
+	getWorkInfo: ['GET', '/api/work-info'],
 	// 访问量
 	getVisits: ['GET', '/api/visits'],
 	// 销售量
-	getSaleCount: ['GET', '/api/saleCount'],
+	getSaleCount: ['GET', '/api/sale-count'],
 	// 用户分布
-	getUserDistribution: ['GET', '/api/userDistribution']
+	getUserDistribution: ['GET', '/api/user-distribution']
 }

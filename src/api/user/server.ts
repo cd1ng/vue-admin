@@ -6,6 +6,24 @@ import { userApis } from '@/api/apiMap'
 import type { UserInfo } from './type'
 
 /**
+ * 用户登录
+ * @returns
+ */
+export async function login(username: string, password: string) {
+	const [method, url] = userApis.login
+	return request[method](url, { params: { username, password } })
+}
+
+/**
+ * 获取用户权限
+ * @returns
+ */
+export async function getUserAuth(userId: string) {
+	const [method, url] = userApis.getUserAuth
+	return request[method](url, { params: { userId } })
+}
+
+/**
  * 获取用户列表
  * @returns
  */

@@ -2,7 +2,9 @@
 import { HomeFilled, EditPen, User, List, Expand, Fold, Histogram, Notification } from '@element-plus/icons-vue'
 
 const isCollapse = ref(false)
-
+const route = useRoute()
+// 获取当前路由
+const activeMenu = computed(() => route.path)
 const menuItems = [
 	{
 		icon: HomeFilled,
@@ -44,7 +46,7 @@ const menuItems = [
 
 <template>
 	<ElAside :width="isCollapse ? '64px' : '160px'" class="main-bg relative h-full select-none">
-		<ElMenu :collapse="isCollapse" :collapse-transition="false" class="main-bg h-full border-none" router>
+		<ElMenu :collapse="isCollapse" :collapse-transition="false" :default-active="activeMenu" class="main-bg h-full border-none" router>
 			<template v-for="item in menuItems" :key="item.path">
 				<!-- 没有子菜单的项目 -->
 				<ElMenuItem v-if="!item.children.length" :index="item.path" class="text hover-bg">
