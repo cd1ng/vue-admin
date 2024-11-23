@@ -1,5 +1,4 @@
-import { type } from './auto-imports';
-type ApiMethod = 'GET' | 'POST' | 'PUT' | 'DELETE'
+export type ApiMethod = 'GET' | 'POST' | 'PUT' | 'DELETE'
 
 type ApiMap = Record<string, [ApiMethod, string]>
 
@@ -55,4 +54,3 @@ type WorkInfoData = {
 	count: number
 	color: string
 }
-

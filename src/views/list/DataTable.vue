@@ -58,7 +58,7 @@ const emit = defineEmits<{
 <template>
 	<ElCard class="card-bg text">
 		<template #header>
-			<div class="flex justify-between items-center select-none">
+			<div class="flex select-none items-center justify-between">
 				<span>数据列表</span>
 				<ElButton type="primary" @click="emit('add')">新增</ElButton>
 			</div>
@@ -84,7 +84,7 @@ const emit = defineEmits<{
 				</template>
 			</ElTableColumn>
 		</ElTable>
-		<div class="flex justify-end mt-4">
+		<div class="mt-4 flex justify-end">
 			<ElPagination
 				v-if="data.length > 0"
 				:current-page="currentPage"

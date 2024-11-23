@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ArrowDown, User } from '@element-plus/icons-vue'
 import { useUserInfoStore } from '@/store/userInfo'
+import Logo from '@/components/Logo.vue'
 
 const router = useRouter()
 const { userInfo, clearUserInfo } = useUserInfoStore()
@@ -13,14 +14,15 @@ const handleLogout = () => {
 </script>
 
 <template>
-	<div class="flex items-center justify-between h-full">
-		<h1 class="text-xl font-semibold select-none text">后台管理系统</h1>
+	<div class="flex h-full items-center justify-between">
+		<!-- <h1 class="text select-none text-xl font-semibold">后台管理系统</h1> -->
+		<Logo class="hidden lg:block" />
 		<div class="flex items-center space-x-4">
 			<ThemeSwitch />
 			<ElDropdown trigger="hover">
-				<div class="flex items-center select-none cursor-pointer outline-none">
-					<ElAvatar :size="32" :icon="User" class="w-[32px] h-[32px] rounded-full" />
-					<span class="ml-2 select-none text">{{ userInfo.username ?? '用户名' }}</span>
+				<div class="flex cursor-pointer select-none items-center outline-none">
+					<ElAvatar :size="32" :icon="User" class="h-[32px] w-[32px] rounded-full" />
+					<span class="text ml-2 select-none">{{ userInfo.username ?? '用户名' }}</span>
 					<ElIcon class="ml-1"><ArrowDown /></ElIcon>
 				</div>
 				<template #dropdown>

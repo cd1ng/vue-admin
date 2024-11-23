@@ -4,14 +4,14 @@ import Aside from './Aside.vue'
 </script>
 
 <template>
-	<ElContainer class="h-screen overflow-hidden main-bg">
+	<ElContainer class="main-bg h-screen overflow-hidden">
 		<ElHeader>
 			<Header />
 		</ElHeader>
 		<ElContainer>
 			<Aside />
 			<ElMain class="content-bg overflow-auto p-4">
-				<div class="h-[calc(100vh-100px)] w-full flex flex-col select-none">
+				<div class="flex h-[calc(100vh-100px)] w-full select-none flex-col">
 					<RouterView v-slot="{ Component }">
 						<KeepAlive :include="['HomePage', 'ListPage', 'RolePage', 'UserPage']">
 							<component :is="Component" />

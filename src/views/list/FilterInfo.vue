@@ -36,10 +36,10 @@ const handleSearch = throttle(() => {
 </script>
 
 <template>
-	<ElCard class="mb-4 card-bg text">
+	<ElCard class="card-bg text mb-4">
 		<ElForm :model="filterInfo" label-width="40px">
 			<!-- 采用grid自适应布局，根据屏幕大小自动调整列数 -->
-			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+			<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
 				<ElFormItem label="名称">
 					<ElInput v-model="filterInfo.name" placeholder="请输入名称" clearable />
 				</ElFormItem>

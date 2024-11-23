@@ -92,7 +92,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 
 <template>
 	<!-- 带渐变背景的容器 -->
-	<div class="min-h-screen relative bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+	<div class="relative flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600">
 		<!-- 背景装饰 -->
 		<!-- inset-0 覆盖全屏幕 -->
 		<div class="absolute inset-0 overflow-hidden">
@@ -100,13 +100,13 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 			<div class="absolute -inset-[10px] opacity-50">
 				<!-- filter blur-xl设置气泡磨砂效果 -->
 				<div
-					class="absolute top-1/4 left-1/4 w-32 h-32 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl animate-blob"
+					class="animate-blob absolute left-1/4 top-1/4 h-32 w-32 rounded-full bg-purple-400 mix-blend-multiply blur-xl filter"
 				></div>
 				<div
-					class="absolute top-1/3 right-1/3 w-32 h-32 bg-yellow-400 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"
+					class="animate-blob animation-delay-2000 absolute right-1/3 top-1/3 h-32 w-32 rounded-full bg-yellow-400 mix-blend-multiply blur-xl filter"
 				></div>
 				<div
-					class="absolute bottom-1/3 left-1/3 w-32 h-32 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"
+					class="animate-blob animation-delay-4000 absolute bottom-1/3 left-1/3 h-32 w-32 rounded-full bg-pink-400 mix-blend-multiply blur-xl filter"
 				></div>
 			</div>
 		</div>
@@ -118,11 +118,11 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 			:size="formSize"
 			:model="userInfo"
 			:rules="rules"
-			class="relative w-[90%] min-w-[300px] max-w-[500px] p-8 bg-white/90 backdrop-blur-sm rounded-lg shadow-2xl"
+			class="relative w-[90%] min-w-[300px] max-w-[500px] rounded-lg bg-white/90 p-8 shadow-2xl backdrop-blur-sm"
 			status-icon
 		>
 			<!-- 标题 -->
-			<h2 class="text-2xl font-bold text-center mb-6 text-gray-800">用户登录</h2>
+			<h2 class="mb-6 text-center text-2xl font-bold text-gray-800">用户登录</h2>
 			<!-- 用户名输入项 -->
 			<!-- prop 属性用于表单验证，指定该项的验证规则 -->
 			<ElFormItem prop="name" label-position="left" label-width="80px">
@@ -140,7 +140,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 			</ElFormItem>
 			<!-- 按钮组 -->
 			<ElFormItem class="mb-0">
-				<div class="flex flex-col sm:flex-row gap-4 justify-center">
+				<div class="flex flex-col justify-center gap-4 sm:flex-row">
 					<ElButton class="w-full sm:w-[120px]" type="primary" @click="submitForm(ruleFormRef)">登录</ElButton>
 					<ElButton class="w-full sm:w-[120px]" @click="resetForm(ruleFormRef)">重置</ElButton>
 				</div>

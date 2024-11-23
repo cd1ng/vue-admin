@@ -20,7 +20,7 @@ const handleContentInput = (value: string) => {
 </script>
 
 <template>
-	<div class="h-full w-full card-bg">
+	<div class="card-bg h-full w-full">
 		<Title :title="titleInfo.title" :author="titleInfo.author" @update-title="handleTitleInput" />
 		<Tiptap :content="titleInfo.content" @update-content="handleContentInput" />
 	</div>

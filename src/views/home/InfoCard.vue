@@ -8,22 +8,21 @@ const props = defineProps<{
 
 <template>
 	<!-- 统计卡片 -->
-	<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+	<div class="grid grid-cols-2 gap-4 md:grid-cols-4">
 		<div
-			v-if="props.infoData !== undefined"
 			v-for="item in props.infoData"
 			:key="item.title"
-			class="p-4 rounded-lg bg-white shadow-sm"
+			class="rounded-lg bg-white p-4 shadow-sm"
 			:style="{ backgroundColor: item.color }"
 		>
 			<div class="flex items-center justify-between">
 				<div>
-					<p class="text-gray-500 text-sm">{{ item.title }}</p>
-					<p class="text-2xl font-semibold mt-1">{{ item.value }}</p>
+					<p class="text-sm text-gray-500">{{ item.title }}</p>
+					<p class="mt-1 text-2xl font-semibold">{{ item.value }}</p>
 				</div>
 			</div>
 		</div>
-		<div v-else>
+		<div v-if="props.infoData === undefined">
 			<ElEmpty description="暂无数据" />
 		</div>
 	</div>

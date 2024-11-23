@@ -14,7 +14,7 @@ const goBack = () => {
 </script>
 
 <template>
-	<div class="min-h-screen flex items-center justify-center bg-gray-50">
+	<div class="flex min-h-screen items-center justify-center bg-gray-50">
 		<div class="text-center">
 			<h1 class="text-9xl font-bold text-gray-200">404</h1>
 

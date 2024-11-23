@@ -26,27 +26,17 @@
 
 	/* 用于编辑器工具栏 */
 	.bubble-menu {
-		@apply bg-white dark:bg-gray-800 
-           border border-gray-200 dark:border-gray-700
-           rounded-lg 
-           shadow-md dark:shadow-gray-900
-           flex w-fit 
-           p-1;
+		@apply flex w-fit rounded-lg border border-gray-200 bg-white p-1 shadow-md dark:border-gray-700 dark:bg-gray-800 dark:shadow-gray-900;
 	}
 
 	/* 用于编辑器工具栏按钮 */
 	.bubble-menu button {
-		@apply p-1 
-           rounded
-           hover:bg-gray-100 dark:hover:bg-gray-700
-           text-gray-700 dark:text-gray-200;
+		@apply rounded p-1 text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700;
 	}
 
 	/* 用于编辑器工具栏按钮激活状态 */
 	.bubble-menu button.is-active {
-		@apply bg-purple-500 dark:bg-purple-600
-           text-white
-           hover:bg-purple-600 dark:hover:bg-purple-700;
+		@apply bg-purple-500 text-white hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700;
 	}
 }
 
