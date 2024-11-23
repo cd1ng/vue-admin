@@ -26,4 +26,4 @@ echarts.use([
 	CanvasRenderer
 ])
 
-export default echarts
+export { echarts }

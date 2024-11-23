@@ -71,7 +71,7 @@ export default defineConfig({
 			filename: 'stats.html',
 			// 以默认服务器代码打开文件
 			open: true
-		}),
+		})
 	],
 	// 打包配置
 	build: {
@@ -91,6 +91,14 @@ export default defineConfig({
 				chunkFileNames: 'static/js/[name]-[hash].js',
 				entryFileNames: 'static/js/[name]-[hash].js',
 				assetFileNames: 'static/[ext]/[name]-[hash].[ext]'
+			}
+		}
+	},
+	// 消除控制台sass警告
+	css: {
+		preprocessorOptions: {
+			scss: {
+				api: 'modern-compiler'
 			}
 		}
 	},

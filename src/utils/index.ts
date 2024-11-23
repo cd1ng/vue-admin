@@ -1,3 +1,5 @@
 import request from './request'
+import { echarts } from './echarts'
+import { getMessageInfo } from './status'
 
-export { request }
+export { request, echarts, getMessageInfo }

@@ -5,24 +5,11 @@ import { authApis } from '@/api/auth'
 import { useUserInfoStore } from '@/store/userInfo'
 
 import type { ComponentSize, FormInstance, FormRules } from 'element-plus'
-
+import type { UserInfo } from '@/api/user/type'
+import type { RuleForm } from './types'
 defineOptions({
 	name: 'LoginPage'
 })
-
-// 定义表单数据的类型接口
-type RuleForm = {
-	name: string
-	password: string
-}
-
-// 登录接口返回的数据类型
-type LoginDataType = {
-	username: string
-	token: string
-	role: string
-	image: string
-}
 
 // 设置表单尺寸
 const formSize = ref<ComponentSize>('default')
@@ -73,7 +60,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 		try {
 			// 调用登录接口
 			const res = await authApis.login(userInfo.name, userInfo.password)
-			const { username, token, role, image } = res.data as LoginDataType
+			const { username, token, role, image } = res.data as UserInfo
 
 			// 保存用户信息到 store 和 localStorage
 			setUserInfo({ username, token, role, image })

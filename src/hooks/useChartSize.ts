@@ -1,4 +1,4 @@
-import echarts from '@/utils/echarts'
+import { echarts } from '@/utils'
 import type { ECOption } from '@/types/echart'
 /**
  * 图表尺寸

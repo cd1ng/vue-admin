@@ -1,32 +1,31 @@
 <script lang="ts" setup>
 import { ROLE_STATUS } from '@/constant/role'
 import { userApis } from '@/api/user'
+
 import type { RoleType } from './types'
+import type { UserInfo } from '@/api/user/type'
 
 defineOptions({
 	name: 'RolePage'
 })
 
-interface UserInfo {
-	token: string
-	username: string
-	role: string
-	image: string
-}
-const loading = ref(false)
+const loading = ref(true)
 const tableData = ref<UserInfo[]>([])
-onMounted(async () => {
+
+const fetchData = async () => {
+	loading.value = true
 	try {
-		loading.value = true
 		const data = await userApis.getList()
 		tableData.value = data?.data || []
 	} catch (error) {
-		loading.value = false
 		console.error(error)
 		tableData.value = []
 	} finally {
 		loading.value = false
 	}
+}
+onMounted(() => {
+	fetchData()
 })
 </script>
 

@@ -15,7 +15,6 @@ const handleLogout = () => {
 
 <template>
 	<div class="flex h-full items-center justify-between">
-		<!-- <h1 class="text select-none text-xl font-semibold">后台管理系统</h1> -->
 		<Logo class="hidden lg:block" />
 		<div class="flex items-center space-x-4">
 			<ThemeSwitch />
