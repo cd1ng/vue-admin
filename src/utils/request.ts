@@ -2,6 +2,7 @@
  * 避免依赖倒置,封装axios请求
  */
 
+import { useUserInfoStore } from '@/store/userInfo'
 import axios, { AxiosRequestConfig } from 'axios'
 
 // 创建请求实例
@@ -14,9 +15,14 @@ const instance = axios.create({
 instance.interceptors.request.use(
 	(config) => {
 		// 添加 token
-		const token = localStorage.getItem('token')
-		if (token) {
-			config.headers.Authorization = `Bearer ${token}`
+		const info = useUserInfoStore()
+		if (info.userInfo.token) {
+			config.headers.Authorization = `Bearer ${info.userInfo.token}`
+		}
+		// 添加 mock token
+		const mockToken = import.meta.env.VITE_APP_MOCK_TOKEN
+		if (mockToken) {
+			config.headers['apifoxToken'] = mockToken
 		}
 		return config
 	},

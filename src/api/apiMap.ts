@@ -8,13 +8,13 @@
  */
 export const userApis: Api.ApiMap = {
 	// 获取用户列表
-	getUsersList: ['GET', '/api/users'],
+	getUsersList: ['GET', '/users'],
 	// 获取用户详情
-	getUsersDetail: ['GET', '/api/users'],
+	getUsersDetail: ['GET', '/users'],
 	// 登录接口
-	login: ['POST', '/api/login'],
+	login: ['POST', '/login'],
 	// 获取用户权限
-	getUserAuth: ['GET', '/api/auth']
+	getUserAuth: ['GET', '/auth']
 }
 
 /**
@@ -22,13 +22,13 @@ export const userApis: Api.ApiMap = {
  */
 export const dataApis: Api.ApiMap = {
 	// 数据列表
-	getList: ['GET', '/api/list'],
+	getList: ['GET', '/list'],
 	// 工作情况
-	getWorkInfo: ['GET', '/api/work-info'],
+	getWorkInfo: ['GET', '/work-info'],
 	// 访问量
-	getVisits: ['GET', '/api/visits'],
+	getVisits: ['GET', '/visits'],
 	// 销售量
-	getSaleCount: ['GET', '/api/sale-count'],
+	getSaleCount: ['GET', '/sale-count'],
 	// 用户分布
-	getUserDistribution: ['GET', '/api/user-distribution']
+	getUserDistribution: ['GET', '/user-distribution']
 }
