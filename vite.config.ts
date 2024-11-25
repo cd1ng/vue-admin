@@ -8,15 +8,23 @@ import Components from 'unplugin-vue-components/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import Icons from 'unplugin-icons/vite'
 import ElementPlus from 'unplugin-element-plus/vite'
-import Inspect from 'vite-plugin-inspect'
+import VueDevTools from 'vite-plugin-vue-devtools'
 import { visualizer } from 'rollup-plugin-visualizer'
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
-	// 加载环境变量
+	// 加载envDir中的.env 文件
 	const env = loadEnv(mode, process.cwd())
 	return {
+		// 指定静态资源目录
+		publicDir: 'public',
+		resolve: {
+			alias: {
+				'@': resolve(__dirname, './src')
+			}
+		},
 		plugins: [
+			VueDevTools(),
 			vue(),
 			// 开启ElementPlus自动引入CSS
 			ElementPlus({}),
@@ -58,10 +66,6 @@ export default defineConfig(({ mode }) => {
 			Icons({
 				autoInstall: true
 			}),
-			Inspect({
-				build: true,
-				outputDir: '.vite-inspect'
-			}),
 			// 打包分析
 			visualizer({
 				// 是否显示 gzip 压缩大小
@@ -78,13 +82,21 @@ export default defineConfig(({ mode }) => {
 		],
 		// 打包配置
 		build: {
+			outDir: 'dist',
+			terserOptions: {
+				compress: {
+					// 生产环境时移除console
+					drop_console: true,
+					// 生产环境时移除debugger
+					drop_debugger: true
+				}
+			},
 			// 关闭 sorcemap 报错不会映射到源码
 			sourcemap: false,
-			// 打包大小超出 400kb 提示警告
-			chunkSizeWarningLimit: 400,
+			// 打包大小超出 2000kb 提示警告
+			chunkSizeWarningLimit: 2000,
 			rollupOptions: {
-				// 打包入口文件 根目录下的 index.html
-				// 也就是项目从哪个文件开始打包
+				// 打包入口文件
 				input: {
 					index: fileURLToPath(new URL('./index.html', import.meta.url))
 				},
@@ -103,11 +115,6 @@ export default defineConfig(({ mode }) => {
 				scss: {
 					api: 'modern-compiler'
 				}
-			}
-		},
-		resolve: {
-			alias: {
-				'@': resolve(__dirname, './src')
 			}
 		},
 		server: {
