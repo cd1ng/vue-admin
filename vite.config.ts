@@ -89,6 +89,10 @@ export default defineConfig(({ mode }) => {
 					drop_console: true,
 					// 生产环境时移除debugger
 					drop_debugger: true
+				},
+				format: {
+					// 移除注释
+					comments: false
 				}
 			},
 			// 关闭 sorcemap 报错不会映射到源码

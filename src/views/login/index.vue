@@ -93,10 +93,10 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 					class="animate-blob absolute left-1/4 top-1/4 h-32 w-32 rounded-full bg-purple-400 mix-blend-multiply blur-xl filter"
 				></div>
 				<div
-					class="animate-blob animation-delay-2000 absolute right-1/3 top-1/3 h-32 w-32 rounded-full bg-yellow-400 mix-blend-multiply blur-xl filter"
+					class="animate-blob delay-[2000ms] absolute right-1/3 top-1/3 h-32 w-32 rounded-full bg-yellow-400 mix-blend-multiply blur-xl filter"
 				></div>
 				<div
-					class="animate-blob animation-delay-4000 absolute bottom-1/3 left-1/3 h-32 w-32 rounded-full bg-pink-400 mix-blend-multiply blur-xl filter"
+					class="animate-blob delay-[4000ms] absolute bottom-1/3 left-1/3 h-32 w-32 rounded-full bg-pink-400 mix-blend-multiply blur-xl filter"
 				></div>
 			</div>
 		</div>
@@ -138,32 +138,3 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 		</ElForm>
 	</div>
 </template>
-
-<style scoped>
-@keyframes blob {
-	0% {
-		transform: translate(0px, 0px) scale(1);
-	}
-	33% {
-		transform: translate(30px, -50px) scale(1.1);
-	}
-	66% {
-		transform: translate(-20px, 20px) scale(0.9);
-	}
-	100% {
-		transform: translate(0px, 0px) scale(1);
-	}
-}
-
-.animate-blob {
-	animation: blob 7s infinite;
-}
-
-.animation-delay-2000 {
-	animation-delay: 2s;
-}
-
-.animation-delay-4000 {
-	animation-delay: 4s;
-}
-</style>
