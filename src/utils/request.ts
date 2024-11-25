@@ -7,7 +7,7 @@ import axios, { AxiosRequestConfig } from 'axios'
 
 // 创建请求实例
 const instance = axios.create({
-	baseURL: import.meta.env.VITE_APP_BASE_API,
+	baseURL: import.meta.env.VITE_APP_BASE_URL,
 	timeout: 5000
 })
 
