@@ -14,6 +14,8 @@ interface ImportMetaEnv {
 	VITE_APP_BASE_API: string
 	/** 接口地址 */
 	VITE_APP_BASE_URL: string
+	/** mock token */
+	VITE_APP_MOCK_TOKEN: string
 }
 
 interface ImportMeta {
