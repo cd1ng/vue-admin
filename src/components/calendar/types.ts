@@ -19,7 +19,8 @@ export type CalendarViewProps = {
   calendarData: CalendarData[]
 }
 
-export type CalendarYearViewProps = {
-  type: SelectType
+export interface CalendarYearViewProps {
+  modelValue: boolean
   calendarData: CalendarData[][]
+  type: SelectType
 }

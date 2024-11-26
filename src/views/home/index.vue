@@ -68,6 +68,7 @@ onMounted(async () => {
 			<InfoCard :info-data="infoCard" />
 			<!-- 图表区域 -->
 			<div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+				<Calendar class="card-bg text h-[400px] rounded-lg p-4 shadow-sm"/>
 				<UserDistribution :user-distribution-data="userDistributionData" class="card-bg text h-[400px] rounded-lg p-4 shadow-sm" />
 				<VisitTrend :visit-data="visitData" class="card-bg text h-[400px] rounded-lg p-4 shadow-sm" />
 				<ProductSale :sale-data="saleData" class="card-bg text h-[400px] rounded-lg p-4 shadow-sm" />
