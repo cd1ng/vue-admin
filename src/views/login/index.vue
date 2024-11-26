@@ -90,21 +90,27 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 			<div class="absolute -inset-[10px] opacity-50">
 				<!-- filter blur-xl设置气泡磨砂效果 -->
 				<div
-					class="absolute left-1/4 top-1/4 h-32 w-32 animate-blob rounded-full bg-purple-400 mix-blend-multiply blur-xl filter">
-				</div>
+					class="absolute left-1/4 top-1/4 h-32 w-32 animate-blob rounded-full bg-purple-400 mix-blend-multiply blur-xl filter"
+				></div>
 				<div
-					class="absolute right-1/3 top-1/3 h-32 w-32 animate-blob rounded-full bg-yellow-400 mix-blend-multiply blur-xl filter delay-[2000ms]">
-				</div>
+					class="absolute right-1/3 top-1/3 h-32 w-32 animate-blob rounded-full bg-yellow-400 mix-blend-multiply blur-xl filter delay-[2000ms]"
+				></div>
 				<div
-					class="absolute bottom-1/3 left-1/3 h-32 w-32 animate-blob rounded-full bg-pink-400 mix-blend-multiply blur-xl filter delay-[4000ms]">
-				</div>
+					class="absolute bottom-1/3 left-1/3 h-32 w-32 animate-blob rounded-full bg-pink-400 mix-blend-multiply blur-xl filter delay-[4000ms]"
+				></div>
 			</div>
 		</div>
 
 		<!-- 登录表单组件 -->
-		<ElForm ref="ruleFormRef" label-width="auto" :size="formSize" :model="userInfo" :rules="rules"
+		<ElForm
+			ref="ruleFormRef"
+			label-width="auto"
+			:size="formSize"
+			:model="userInfo"
+			:rules="rules"
 			class="relative w-[90%] min-w-[300px] max-w-[500px] rounded-lg bg-white/90 p-8 shadow-2xl backdrop-blur-sm"
-			status-icon>
+			status-icon
+		>
 			<!-- 标题 -->
 			<h2 class="mb-6 text-center text-2xl font-bold text-gray-800">用户登录</h2>
 			<!-- 用户名输入项 -->
