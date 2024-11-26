@@ -7,6 +7,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    Calendar: typeof import('./../components/calendar/index.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElButton: typeof import('element-plus/es')['ElButton']
@@ -35,9 +36,16 @@ declare module 'vue' {
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     ElTag: typeof import('element-plus/es')['ElTag']
     Logo: typeof import('./../components/Logo.vue')['default']
+    Month: typeof import('./../components/calendar/Month.vue')['default']
+    MonthView: typeof import('./../components/calendar/MonthView.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ThemeSwitch: typeof import('./../components/ThemeSwitch.vue')['default']
+    Week: typeof import('./../components/calendar/Week.vue')['default']
+    WeekTitle: typeof import('./../components/calendar/WeekTitle.vue')['default']
+    WeekView: typeof import('./../components/calendar/WeekView.vue')['default']
+    Year: typeof import('./../components/calendar/Year.vue')['default']
+    YearView: typeof import('./../components/calendar/YearView.vue')['default']
   }
   export interface ComponentCustomProperties {
     vLoading: typeof import('element-plus/es')['ElLoadingDirective']
