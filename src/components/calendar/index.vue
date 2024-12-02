@@ -9,6 +9,11 @@ import type { SelectType, CalendarViewData } from './types'
 
 const viewTypes = ['year', 'month', 'week'] as SelectType[]
 
+const NEXT_STEP = 1
+const BACK_STEP = -1
+
+type StepType = typeof NEXT_STEP | typeof BACK_STEP
+
 const calenderState = ref<{ currentDate: Dayjs; type: SelectType; selectDate: Dayjs }>({
 	currentDate: dayjs(),
 	type: 'month',
@@ -28,7 +33,7 @@ const CalendarData = computed<CalendarViewData>(() => {
 })
 
 // 处理日期切换
-const handleDateChange = (delta: 1 | -1) => {
+const handleDateChange = (delta: StepType) => {
 	const { type, currentDate } = calenderState.value
 	switch (type) {
 		case 'year':
@@ -46,12 +51,13 @@ const handleDateChange = (delta: 1 | -1) => {
 // 年份选择弹窗控制
 const yearDialogVisible = ref(false)
 
-// 处理年份选择
-// const handleYearSelect = (date: Date) => {
-//   calenderState.value.currentDate = dayjs(date)
-//   calenderState.value.type = 'month'
-//   yearDialogVisible.value = false
-// }
+// 处理月份选择
+const handleMonthSelect = (month: number) => {
+	// 使用当前日期年份和选中的月份创建新的日期
+	calenderState.value.currentDate = calenderState.value.currentDate.month(month)
+	calenderState.value.type = 'month'
+	yearDialogVisible.value = false
+}
 
 // 修改视图切换逻辑
 const handleViewChange = (type: SelectType) => {
@@ -61,6 +67,7 @@ const handleViewChange = (type: SelectType) => {
 		calenderState.value.type = type
 	}
 }
+
 </script>
 
 <template>
@@ -69,63 +76,31 @@ const handleViewChange = (type: SelectType) => {
 		<div class="mb-4">
 			<!-- 视图切换按钮组 -->
 			<div class="mb-4 flex gap-2">
-				<button
-					v-for="type in viewTypes"
-					:key="type"
-					class="rounded-md px-4 py-2 transition-colors"
+				<button v-for="type in viewTypes" :key="type" class="rounded-md p-1 transition-colors"
 					:class="calenderState.type === type ? 'bg-blue-500 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
-					@click="handleViewChange(type)"
-				>
+					@click="handleViewChange(type)">
 					{{ type === 'year' ? '年' : type === 'month' ? '月' : '周' }}
 				</button>
 			</div>
 
 			<!-- 日期导航 -->
 			<div class="flex items-center justify-between px-2">
-				<button class="rounded-full p-2 hover:bg-gray-100" @click="handleDateChange(-1)">&lt;</button>
+				<button class="rounded-full p-2 hover:bg-gray-100" @click="handleDateChange(BACK_STEP)">&lt;</button>
 				<span class="text-lg font-medium">
 					{{ calenderState.currentDate.format('YYYY年MM月DD日') }}
 				</span>
-				<button class="rounded-full p-2 hover:bg-gray-100" @click="handleDateChange(1)">&gt;</button>
+				<button class="rounded-full p-2 hover:bg-gray-100" @click="handleDateChange(NEXT_STEP)">&gt;</button>
 			</div>
 		</div>
 
 		<!-- 日历视图区域 -->
-		<div class="calendar-view">
+		<div class="overflow-auto h-[calc(100%-7rem)]">
 			<MonthView v-if="calenderState.type === 'month'" :calendar-data="CalendarData.month" :type="calenderState.type" />
 			<WeekView v-else :calendar-data="CalendarData.week" :type="calenderState.type" />
 		</div>
 
 		<!-- 年份选择弹窗 -->
-		<YearView
-			v-if="yearDialogVisible"
-			v-model="yearDialogVisible"
-			:calendar-data="CalendarData.year"
-			:type="'year'"
-			@close="yearDialogVisible = false"
-		/>
-		<!-- <YearView 
-      v-if="yearDialogVisible"
-      v-model="yearDialogVisible"
-      :calendar-data="CalendarData.year" 
-      :type="'year'"
-      @close="yearDialogVisible = false"
-      @select="handleYearSelect"
-    /> -->
+		<YearView v-if="yearDialogVisible" v-model="yearDialogVisible" :calendar-data="CalendarData.year" :type="'year'"
+			@close="yearDialogVisible = false" @select="handleMonthSelect" />
 	</div>
 </template>
-
-<style scoped>
-.calendar-container {
-	width: 100%;
-	height: 100%;
-	background-color: white;
-	border-radius: 0.5rem;
-	padding: 1rem;
-}
-
-.calendar-view {
-	height: calc(100% - 7rem);
-	overflow: auto;
-}
-</style>

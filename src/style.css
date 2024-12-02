@@ -38,6 +38,30 @@
 	.bubble-menu button.is-active {
 		@apply bg-purple-500 text-white hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700;
 	}
+
+	/* 自定义滚动条样式组件 */
+	.custom-scrollbar {
+		/* 滚动条整体部分 */
+		&::-webkit-scrollbar {
+				width: 8px;
+				height: 8px;
+		}
+
+		/* 滚动条轨道 */
+		&::-webkit-scrollbar-track {
+				@apply bg-transparent rounded;
+		}
+
+		/* 滚动条滑块 */
+		&::-webkit-scrollbar-thumb {
+				@apply bg-gray-300 rounded hover:bg-gray-400 transition-colors
+							 dark:bg-gray-600 dark:hover:bg-gray-500;
+		}
+
+		/* Firefox 支持 */
+		scrollbar-width: thin;
+		scrollbar-color: theme('colors.gray.300') transparent;
+	}
 }
 
 html,

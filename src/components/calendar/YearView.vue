@@ -7,8 +7,8 @@ withDefaults(defineProps<CalendarYearViewProps>(), {
 });
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: boolean): void
   (e: 'close'): void
+  (e: 'select', month: number): void
 }>()
 
 const monthTitles = [
@@ -16,15 +16,19 @@ const monthTitles = [
   '五月', '六月', '七月', '八月',
   '九月', '十月', '十一月', '十二月'
 ];
+
+// 选择月份
+const handleMonthSelect = (month: number) => {
+  emit('select', month)
+}
 </script>
 
 <template>
-  <ElDialog :model-value="modelValue" @update:model-value="emit('update:modelValue', $event)" title="年历" width="80%"
-    :close-on-click-modal="false" @close="emit('close')">
-    <div class="year-calendar">
+  <ElDialog :model-value="modelValue" title="年历" width="80%" @close="emit('close')">
+    <div class="max-h-[70vh] overflow-y-auto custom-scrollbar">
       <div class="grid grid-cols-4 gap-4">
         <div v-for="(item, index) in calendarData" :key="index"
-          class="month-card hover:shadow-md transition-shadow cursor-pointer">
+          class="month-card hover:shadow-md transition-shadow cursor-pointer" @click="handleMonthSelect(index)">
           <h3 class="month-title">{{ monthTitles[index] }}</h3>
           <MonthView :calendar-data="item" :type="type" class="compact-month-view" />
         </div>
@@ -34,11 +38,6 @@ const monthTitles = [
 </template>
 
 <style scoped>
-.year-calendar {
-  max-height: 70vh;
-  overflow-y: auto;
-}
-
 .month-card {
   background-color: white;
   border-radius: 0.5rem;

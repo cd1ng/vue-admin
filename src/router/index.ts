@@ -42,11 +42,11 @@ router.beforeEach(async (_to, _from, next) => {
 	NProgress.start()
 	const store = useUserInfoStore()
 	const userIsLogin = store.userInfo.token ? true : false
-	if (userIsLogin || _to.path === '/login') {
-		next()
-	} else {
-		next('/login')
-	}
+	// if (userIsLogin || _to.path === '/login') {
+	next()
+	// } else {
+	// 	next('/login')
+	// }
 })
 router.afterEach(() => {
 	// 结束进度条显示
