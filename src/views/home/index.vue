@@ -65,19 +65,28 @@ onMounted(async () => {
 		</template>
 
 		<template #default>
-			<InfoCard :info-data="infoCard" />
-			<!-- 图表区域 -->
-			<div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
-				<Calendar class="card-bg text h-[400px] rounded-lg p-4 shadow-sm"/>
-				<UserDistribution :user-distribution-data="userDistributionData" class="card-bg text h-[400px] rounded-lg p-4 shadow-sm" />
-				<VisitTrend :visit-data="visitData" class="card-bg text h-[400px] rounded-lg p-4 shadow-sm" />
-				<ProductSale :sale-data="saleData" class="card-bg text h-[400px] rounded-lg p-4 shadow-sm" />
+			<div class="dashboard-container">
+				<InfoCard :info-data="infoCard" />
+				<!-- 图表区域 -->
+				<div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+					<Calendar class="card-bg text h-[400px] rounded-lg p-4 shadow-sm"/>
+					<UserDistribution :user-distribution-data="userDistributionData" class="card-bg text h-[400px] rounded-lg p-4 shadow-sm" />
+					<VisitTrend :visit-data="visitData" class="card-bg text h-[400px] rounded-lg p-4 shadow-sm" />
+					<ProductSale :sale-data="saleData" class="card-bg text h-[400px] rounded-lg p-4 shadow-sm" />
+				</div>
 			</div>
 		</template>
 	</ElSkeleton>
 </template>
 
 <style scoped>
+.dashboard-container {
+	min-height: 100%;
+	width: 100%;
+	overflow: visible;
+	padding-bottom: 20px;
+}
+
 /* 骨架屏高度100% */
 .skeleton-wrapper :deep(.el-skeleton__item) {
 	height: 100%;

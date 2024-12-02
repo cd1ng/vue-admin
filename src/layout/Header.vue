@@ -17,6 +17,7 @@ const handleLogout = () => {
 	<div class="flex h-full items-center justify-between">
 		<Logo class="hidden lg:block" />
 		<div class="flex items-center space-x-4">
+			<Capture />
 			<ThemeSwitch />
 			<ElDropdown trigger="hover">
 				<div class="flex cursor-pointer select-none items-center outline-none">
