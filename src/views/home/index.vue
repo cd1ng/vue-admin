@@ -69,10 +69,29 @@ onMounted(async () => {
 				<InfoCard :info-data="infoCard" />
 				<!-- 图表区域 -->
 				<div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
-					<Calendar class="card-bg text h-[400px] rounded-lg p-4 shadow-sm"/>
-					<UserDistribution :user-distribution-data="userDistributionData" class="card-bg text h-[400px] rounded-lg p-4 shadow-sm" />
-					<VisitTrend :visit-data="visitData" class="card-bg text h-[400px] rounded-lg p-4 shadow-sm" />
-					<ProductSale :sale-data="saleData" class="card-bg text h-[400px] rounded-lg p-4 shadow-sm" />
+					<Calendar class="pdf-element card-bg text h-[400px] rounded-lg p-4 shadow-sm" />
+					<UserDistribution :user-distribution-data="userDistributionData"
+						class="pdf-element card-bg text h-[400px] rounded-lg p-4 shadow-sm" />
+					<VisitTrend :visit-data="visitData" class="pdf-element card-bg text h-[400px] rounded-lg p-4 shadow-sm" />
+					<ProductSale :sale-data="saleData" class="pdf-element card-bg text h-[400px] rounded-lg p-4 shadow-sm" />
+					<div class="pdf-element bg-blue-100 text h-[400px] rounded-lg p-4 shadow-sm"></div>
+					<div class="pdf-element bg-blue-200 text h-[400px] rounded-lg p-4 shadow-sm"></div>
+					<div class="pdf-element bg-blue-300 text h-[400px] rounded-lg p-4 shadow-sm"></div>
+					<div class="pdf-element bg-blue-400 text h-[400px] rounded-lg p-4 shadow-sm"></div>
+					<div class="pdf-element bg-blue-500 text h-[400px] rounded-lg p-4 shadow-sm"></div>
+					<div class="pdf-element bg-blue-600 text h-[400px] rounded-lg p-4 shadow-sm"></div>
+					<div class="pdf-element bg-blue-700 text h-[400px] rounded-lg p-4 shadow-sm"></div>
+					<div class="pdf-element bg-blue-800 text h-[400px] rounded-lg p-4 shadow-sm"></div>
+					<div class="pdf-element bg-blue-900 text h-[400px] rounded-lg p-4 shadow-sm"></div>
+					<div class="pdf-element bg-red-100 text h-[400px] rounded-lg p-4 shadow-sm"></div>
+					<div class="pdf-element bg-red-200 text h-[400px] rounded-lg p-4 shadow-sm"></div>
+					<div class="pdf-element bg-red-300 text h-[400px] rounded-lg p-4 shadow-sm"></div>
+					<div class="pdf-element bg-red-400 text h-[400px] rounded-lg p-4 shadow-sm"></div>
+					<div class="pdf-element bg-red-500 text h-[400px] rounded-lg p-4 shadow-sm"></div>
+					<div class="pdf-element bg-red-600 text h-[400px] rounded-lg p-4 shadow-sm"></div>
+					<div class="pdf-element bg-red-700 text h-[400px] rounded-lg p-4 shadow-sm"></div>
+					<div class="pdf-element bg-red-800 text h-[400px] rounded-lg p-4 shadow-sm"></div>
+					<div class="pdf-element bg-red-900 text h-[400px] rounded-lg p-4 shadow-sm"></div>
 				</div>
 			</div>
 		</template>
@@ -85,6 +104,9 @@ onMounted(async () => {
 	width: 100%;
 	overflow: visible;
 	padding-bottom: 20px;
+	/* 确保内容不会被裁剪 */
+	position: relative;
+	z-index: 1;
 }
 
 /* 骨架屏高度100% */

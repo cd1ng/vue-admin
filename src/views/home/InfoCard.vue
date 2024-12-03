@@ -8,7 +8,7 @@ const props = defineProps<{
 
 <template>
 	<!-- 统计卡片 -->
-	<div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+	<div class="pdf-element grid grid-cols-2 gap-4 md:grid-cols-4">
 		<div
 			v-for="item in props.infoData"
 			:key="item.title"
