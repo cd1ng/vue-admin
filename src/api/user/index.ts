@@ -3,6 +3,7 @@
  */
 
 import * as userService from './server'
+
 /**
  * 获取用户列表
  */
@@ -51,6 +52,23 @@ async function login(username: string, password: string) {
 }
 
 /**
+ * 用户注册
+ */
+async function register(username: string, password: string) {
+	try {
+		const response = await userService.register(username, password)
+		return {
+			data: response.data
+		}
+	} catch (error) {
+		console.error('用户登录失败:', error)
+		return {
+			data: []
+		}
+	}
+}
+
+/**
  * 获取用户权限
  */
 async function getUserAuth(userId: string) {
@@ -69,6 +87,7 @@ async function getUserAuth(userId: string) {
 
 export const userApis = {
 	login,
+	register,
 	getUserAuth,
 	getList,
 	getDetail

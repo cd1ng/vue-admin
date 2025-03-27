@@ -15,6 +15,15 @@ export async function login(username: string, password: string) {
 }
 
 /**
+ * 用户注册
+ * @returns
+ */
+export async function register(username: string, password: string) {
+	const [method, url] = userApis.register
+	return request[method](url, { params: { username, password } })
+}
+
+/**
  * 获取用户权限
  * @returns
  */

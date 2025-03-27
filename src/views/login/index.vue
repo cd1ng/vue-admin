@@ -35,17 +35,17 @@ const rules = reactive<FormRules<RuleForm>>({
 	]
 })
 
-// 重置表单方法
-const resetForm = (formEl: FormInstance | undefined) => {
-	if (!formEl) return
-	formEl.resetFields()
-}
+// // 重置表单方法
+// const resetForm = (formEl: FormInstance | undefined) => {
+// 	if (!formEl) return
+// 	formEl.resetFields()
+// }
 const router = useRouter()
 
 const store = useUserInfoStore()
 const { setUserInfo } = store
 // 提交表单方法
-const submitForm = async (formEl: FormInstance | undefined) => {
+const loginForm = async (formEl: FormInstance | undefined) => {
 	if (!formEl) return
 
 	try {
@@ -61,9 +61,9 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 
 		try {
 			// 加盐
-			const hashedPassword = await bcrypt.hash(userInfo.password, 10)
+			// const hashedPassword = await bcrypt.hash(userInfo.password, 10)
 			// 调用登录接口
-			const res = await userApis.login(userInfo.name, hashedPassword)
+			const res = await userApis.login(userInfo.name, userInfo.password)
 			const { username, token, role, image } = res.data as UserInfo
 			// 保存用户信息到 store 和 localStorage
 			setUserInfo({ username, token, role, image })
@@ -71,6 +71,38 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 			router.push('/')
 		} catch (error) {
 			ElMessage.error('登录失败：' + (error as Error).message)
+		} finally {
+			loading.close()
+		}
+	} catch (formError) {
+		console.error('表单验证失败:', formError)
+	}
+}
+// 注册表单方法
+const registerForm = async (formEl: FormInstance | undefined) => {
+	if (!formEl) return
+	try {
+		// 先进行表单验证
+		await formEl.validate()
+		// 显示加载状态
+		const loading = ElLoading.service({
+			lock: true,
+			text: '注册中...',
+			background: 'rgba(0, 0, 0, 0.7)'
+		})
+
+		try {
+			// 加盐
+			// const hashedPassword = await bcrypt.hash(userInfo.password, 10)
+			// 调用登录接口
+			const res = await userApis.register(userInfo.name, userInfo.password)
+			const { username, token, role, image } = res.data as UserInfo
+			// 保存用户信息到 store 和 localStorage
+			setUserInfo({ username, token, role, image })
+			ElMessage.success('注册成功')
+			router.push('/')
+		} catch (error) {
+			ElMessage.error('注册失败：' + (error as Error).message)
 		} finally {
 			loading.close()
 		}
@@ -131,8 +163,8 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 			<!-- 按钮组 -->
 			<ElFormItem class="mb-0">
 				<div class="flex flex-col justify-center gap-4 sm:flex-row">
-					<ElButton class="w-full sm:w-[120px]" type="primary" @click="submitForm(ruleFormRef)">登录</ElButton>
-					<ElButton class="w-full sm:w-[120px]" @click="resetForm(ruleFormRef)">重置</ElButton>
+					<ElButton class="w-full sm:w-[120px]" type="primary" @click="loginForm(ruleFormRef)">登录</ElButton>
+					<ElButton class="w-full sm:w-[120px]" @click="registerForm(ruleFormRef)">注册</ElButton>
 				</div>
 			</ElFormItem>
 		</ElForm>

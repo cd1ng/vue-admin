@@ -12,7 +12,9 @@ export const userApis: Api.ApiMap = {
 	// 获取用户详情
 	getUsersDetail: ['GET', '/users'],
 	// 登录接口
-	login: ['POST', '/login'],
+	login: ['POST', '/login/'],
+	// 注册接口
+	register: ['POST', '/register/'],
 	// 获取用户权限
 	getUserAuth: ['GET', '/auth']
 }
