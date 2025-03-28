@@ -20,7 +20,6 @@ async function createrGroup(new_group: string, permission_list: string[]) {
 async function getGroups() {
 	try {
 		const response = await powerService.getGroups()
-		console.log(response)
 		return response.data
 	} catch (error) {
 		console.error('获取全部用户组失败:', error)
@@ -56,9 +55,51 @@ async function changeUserGroup(id: string, group_name: string, permission_list: 
 	}
 }
 
+/**
+ * 获取用户
+ */
+async function getUser() {
+	try {
+		const response = await powerService.getUser()
+		return response.data
+	} catch (error) {
+		console.error('获取用户失败:', error)
+		return null
+	}
+}
+
+/**
+ * 修改用户
+ */
+async function updateUser(id: string, username: string, groupName: string) {
+	try {
+		const response = await powerService.updateUser(id, username, groupName)
+		return response.data
+	} catch (error) {
+		console.error('修改用户失败:', error)
+		return null
+	}
+}
+
+/**
+ * 删除用户
+ */
+async function deleteUser(id: string) {
+	try {
+		const response = await powerService.deleteUser(id)
+		return response.data
+	} catch (error) {
+		console.error('删除用户失败:', error)
+		return null
+	}
+}
+
 export const powerApis = {
 	createrGroup,
 	getGroups,
 	deleteGroups,
-	changeUserGroup
+	changeUserGroup,
+	getUser,
+	updateUser,
+	deleteUser
 }

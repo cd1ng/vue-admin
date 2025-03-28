@@ -111,30 +111,42 @@ const fetchData = async () => {
  * 创建新用户组
  */
 const handleAddGroup = async () => {
-	// 新增用户组
-	if (currentStatus.value === 'new') {
-		await powerApis.createrGroup(
-			form.value.name,
-			form.value.powerList
-				.map((item: any) => {
-					const [tableStr, featureStr] = item.id.split('_')
-					return item.power.map((power_item: any) => `${tableStr}.${power_item}_${featureStr}`)
-				})
-				.flat(1)
-		)
-	}
-	// 修改用户组逻辑
-	else if (currentStatus.value === 'change') {
-		await powerApis.changeUserGroup(
-			form.value.id,
-			form.value.name,
-			form.value.powerList
-				.map((item: any) => {
-					const [tableStr, featureStr] = item.id.split('_')
-					return item.power.map((power_item: any) => `${tableStr}.${power_item}_${featureStr}`)
-				})
-				.flat(1)
-		)
+	try {
+		// 新增用户组
+		if (currentStatus.value === 'new') {
+			await powerApis.createrGroup(
+				form.value.name,
+				form.value.powerList
+					.map((item: any) => {
+						const [tableStr, featureStr] = item.id.split('_')
+						return item.power.map((power_item: any) => `${tableStr}.${power_item}_${featureStr}`)
+					})
+					.flat(1)
+			)
+			ElMessage.error('创建用户组成功')
+		}
+		// 修改用户组逻辑
+		else if (currentStatus.value === 'change') {
+			await powerApis.changeUserGroup(
+				form.value.id,
+				form.value.name,
+				form.value.powerList
+					.map((item: any) => {
+						const [tableStr, featureStr] = item.id.split('_')
+						return item.power.map((power_item: any) => `${tableStr}.${power_item}_${featureStr}`)
+					})
+					.flat(1)
+			)
+			ElMessage.error('修改用户组成功')
+		}
+	} catch (error) {
+		if (currentStatus.value === 'new') {
+			console.error('创建用户组失败:', error)
+			ElMessage.error('创建用户组失败')
+		} else if (currentStatus.value === 'change') {
+			console.error('修改用户组失败:', error)
+			ElMessage.error('修改用户组失败')
+		}
 	}
 	dialogVisible.value = false
 	form.value = getDefaultForm()

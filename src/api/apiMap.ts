@@ -48,5 +48,12 @@ export const powerApis: Api.ApiMap = {
 	// 删除用户组
 	deleteGroups: ['POST', '/delete_group/'],
 	// 修改用户组
-	changeUserGroup: ['POST', '/change_group/']
+	changeUserGroup: ['POST', '/change_group/'],
+	// RESTFUL 风格
+	// 获取用户
+	getUser: ['GET', '/user_manage/'],
+	// 修改用户
+	updateUser: ['PUT', '/user_manage/'],
+	// 删除用户
+	deleteUser: ['DELETE', '/user_manage/']
 }

@@ -36,7 +36,36 @@ export async function getGroups() {
  * @returns
  */
 export async function changeUserGroup(id: string, group_name: string, permission_list: string[]) {
-	console.log(id, group_name, permission_list)
 	const [method, url] = powerApis.changeUserGroup
 	return request[method](url, { params: { id, group_name, permission_list } })
+}
+
+/**
+ * 获取用户
+ * @param id 用户Id
+ * @returns
+ */
+export async function getUser() {
+	const [method, url] = powerApis.getUser
+	return request[method](url)
+}
+
+/**
+ * 修改用户
+ * @param user 用户信息
+ * @returns
+ */
+export async function updateUser(id: string, username: string, groupName: string) {
+	const [method, url] = powerApis.updateUser
+	return request[method](url, { params: { id, username, group: groupName } })
+}
+
+/**
+ * 删除用户
+ * @param id 用户Id
+ * @returns
+ */
+export async function deleteUser(id: string) {
+	const [method, url] = powerApis.deleteUser
+	return request[method](url, { params: { id } })
 }
