@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { HomeFilled, EditPen, User, List, Expand, Fold, Histogram, Notification } from '@element-plus/icons-vue'
+import { HomeFilled, EditPen, User, List, Expand, Fold, Histogram, Notification, Phone } from '@element-plus/icons-vue'
 
 const isCollapse = ref(false)
 const route = useRoute()
@@ -39,6 +39,23 @@ const menuItems = [
 		icon: User,
 		title: '权限管理',
 		path: '/role',
+		children: [
+			{
+				icon: Histogram,
+				title: '用户组管理',
+				path: '/role/group'
+			},
+			{
+				icon: Notification,
+				title: '用户管理',
+				path: '/role/power'
+			}
+		]
+	},
+	{
+		icon: Phone,
+		title: '文章管理',
+		path: '/article',
 		children: []
 	}
 ]

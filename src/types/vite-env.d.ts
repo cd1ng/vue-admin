@@ -8,16 +8,14 @@ declare module '*.vue' {
 
 // 添加环境变量
 interface ImportMetaEnv {
-	 /** 应用端口 */
-	VITE_APP_PORT:number
+	/** 应用端口 */
+	VITE_APP_PORT: number
 	/** 代理前缀 */
 	VITE_APP_BASE_API: string
 	/** 接口地址 */
 	VITE_APP_BASE_URL: string
-	/** mock token */
-	VITE_APP_MOCK_TOKEN: string
 }
 
 interface ImportMeta {
-  readonly env: ImportMetaEnv
+	readonly env: ImportMetaEnv
 }

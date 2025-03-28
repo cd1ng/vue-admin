@@ -19,11 +19,6 @@ instance.interceptors.request.use(
 		if (info.userInfo.token) {
 			config.headers.Authorization = `Bearer ${info.userInfo.token}`
 		}
-		// 添加 mock token
-		const mockToken = import.meta.env.VITE_APP_MOCK_TOKEN
-		if (mockToken) {
-			config.headers['apifoxToken'] = mockToken
-		}
 		return config
 	},
 	(error) => {

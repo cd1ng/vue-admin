@@ -16,10 +16,23 @@ export default {
 		{
 			path: '/role',
 			name: 'RolePage',
-			component: () => import('@/views/role/index.vue'),
 			meta: {
 				KeepAlive: true
-			}
+			},
+			// 重定向到用户管理
+			redirect: '/role/group',
+			children: [
+				{
+					path: '/role/group',
+					name: 'GroupPage',
+					component: () => import('@/views/role/group.vue')
+				},
+				{
+					path: '/role/power',
+					name: 'PowerPage',
+					component: () => import('@/views/role/index.vue')
+				}
+			]
 		},
 		{
 			path: '/list',
@@ -46,6 +59,14 @@ export default {
 			path: '/editor',
 			name: 'EditorPage',
 			component: () => import('@/views/editor/index.vue'),
+			meta: {
+				KeepAlive: true
+			}
+		},
+		{
+			path: '/article',
+			name: 'ArticlePage',
+			component: () => import('@/views/article/index.vue'),
 			meta: {
 				KeepAlive: true
 			}

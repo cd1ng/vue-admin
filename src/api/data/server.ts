@@ -48,3 +48,13 @@ export async function getWorkInfo() {
 	const [method, url] = dataApis.getWorkInfo
 	return request[method]<InfoData[]>(url)
 }
+
+/**
+ * 新建文章
+ * @param data 文章数据
+ * @returns
+ */
+export async function createArticle(title: string, cover: string, text: string) {
+	const [method, url] = dataApis.createArticle
+	return request[method](url, { params: { title, cover, text } })
+}

@@ -61,7 +61,7 @@ async function register(username: string, password: string) {
 			data: response.data
 		}
 	} catch (error) {
-		console.error('用户登录失败:', error)
+		console.error('用户注册失败:', error)
 		return {
 			data: []
 		}
@@ -78,7 +78,7 @@ async function getUserAuth(userId: string) {
 			data: response.data
 		}
 	} catch (error) {
-		console.error('用户登录失败:', error)
+		console.error('获取用户权限失败:', error)
 		return {
 			data: []
 		}

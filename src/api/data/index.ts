@@ -86,10 +86,28 @@ async function getWorkInfo() {
 	}
 }
 
+/**
+ * 新建文章
+ */
+async function createArticle(title: string, cover: string, text: string) {
+	try {
+		const response = await dataService.createArticle(title, cover, text)
+		return {
+			data: response?.data || []
+		}
+	} catch (error) {
+		console.error('新建文章失败:', error)
+		return {
+			data: []
+		}
+	}
+}
+
 export const dataApis = {
 	getDataList,
 	getVisits,
 	getSaleCount,
 	getUserDistribution,
-	getWorkInfo
+	getWorkInfo,
+	createArticle
 }

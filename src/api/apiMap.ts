@@ -16,7 +16,7 @@ export const userApis: Api.ApiMap = {
 	// 注册接口
 	register: ['POST', '/register/'],
 	// 获取用户权限
-	getUserAuth: ['GET', '/auth']
+	getUserAuth: ['POST', '/check_permission/']
 }
 
 /**
@@ -32,5 +32,21 @@ export const dataApis: Api.ApiMap = {
 	// 销售量
 	getSaleCount: ['GET', '/sale-count'],
 	// 用户分布
-	getUserDistribution: ['GET', '/user-distribution']
+	getUserDistribution: ['GET', '/user-distribution'],
+	// 新建文章
+	createArticle: ['POST', '/add_article/']
+}
+
+/**
+ * 权限相关接口
+ */
+export const powerApis: Api.ApiMap = {
+	// 新增用户组
+	createrGroup: ['PUT', '/add_group/'],
+	// 获取全部用户组
+	getGroups: ['GET', '/get_all_groups/'],
+	// 删除用户组
+	deleteGroups: ['POST', '/delete_group/'],
+	// 修改用户组
+	changeUserGroup: ['POST', '/change_group/']
 }
