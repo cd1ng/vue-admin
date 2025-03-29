@@ -25,7 +25,7 @@ async function toCanvas(element: HTMLElement, width: number) {
     windowWidth: element.scrollWidth,
     windowHeight: element.scrollHeight,
     // 确保捕获完整内容
-    onclone: (_, element) => {
+    onclone: (document, element) => {
       element.style.transform = 'none'
       element.style.maxHeight = 'none'
       element.style.overflow = 'visible'

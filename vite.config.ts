@@ -9,7 +9,6 @@ import IconsResolver from 'unplugin-icons/resolver'
 import Icons from 'unplugin-icons/vite'
 import ElementPlus from 'unplugin-element-plus/vite'
 import VueDevTools from 'vite-plugin-vue-devtools'
-import viteCompression from 'vite-plugin-compression'
 import { visualizer } from 'rollup-plugin-visualizer'
 
 // https://vite.dev/config/
@@ -19,7 +18,6 @@ export default defineConfig(({ mode }) => {
 	return {
 		// 指定静态资源目录
 		publicDir: 'public',
-		base: '/',
 		resolve: {
 			alias: {
 				'@': resolve(__dirname, './src')
@@ -80,15 +78,6 @@ export default defineConfig(({ mode }) => {
 				filename: 'stats.html',
 				// 以默认服务器代码打开文件
 				open: true
-			}),
-			// 静态资源压缩
-			viteCompression({
-				disable: false, // 开启压缩(不禁用)，默认即可
-				deleteOriginFile: true, // 删除源文件
-				threshold: 10240, // 修改为 10KB，只压缩大于 10KB 的文件
-				algorithm: 'gzip', // 压缩算法
-				ext: '.gz', // 文件类型
-				filter: (file) => !file.includes('stats.html') // 排除 stats.html 文件
 			})
 		],
 		// 打包配置
@@ -96,18 +85,16 @@ export default defineConfig(({ mode }) => {
 			outDir: 'dist',
 			terserOptions: {
 				compress: {
+					// 生产环境时移除console
 					drop_console: true,
-					drop_debugger: true,
-					pure_funcs: ['console.log', 'console.info'],
-					passes: 2
+					// 生产环境时移除debugger
+					drop_debugger: true
 				},
 				format: {
 					// 移除注释
 					comments: false
 				}
 			},
-			// 启用 gzip 压缩大小报告
-			reportCompressedSize: true,
 			// 关闭 sorcemap 报错不会映射到源码
 			sourcemap: false,
 			// 打包大小超出 2000kb 提示警告
