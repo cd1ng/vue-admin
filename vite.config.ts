@@ -19,6 +19,7 @@ export default defineConfig(({ mode }) => {
 	return {
 		// 指定静态资源目录
 		publicDir: 'public',
+		base: '/',
 		resolve: {
 			alias: {
 				'@': resolve(__dirname, './src')
@@ -78,7 +79,7 @@ export default defineConfig(({ mode }) => {
 				// 生成的文件名
 				filename: 'stats.html',
 				// 以默认服务器代码打开文件
-				open: true,
+				open: true
 			}),
 			// 静态资源压缩
 			viteCompression({
@@ -88,7 +89,7 @@ export default defineConfig(({ mode }) => {
 				algorithm: 'gzip', // 压缩算法
 				ext: '.gz', // 文件类型
 				filter: (file) => !file.includes('stats.html') // 排除 stats.html 文件
-			}),
+			})
 		],
 		// 打包配置
 		build: {
