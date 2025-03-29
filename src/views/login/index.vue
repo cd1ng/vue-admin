@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ElMessage, ElLoading } from 'element-plus'
-import bcrypt from 'bcryptjs'
 import { User, Lock } from '@element-plus/icons-vue'
 import { userApis } from '@/api/user'
 import { useUserInfoStore } from '@/store/userInfo'
