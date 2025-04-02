@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
-import { useUserInfoStore } from '@/store/userInfo'
+// import { useUserInfoStore } from '@/store/userInfo'
 
 import type { ModuleNamespace } from 'vite/types/hot.js'
 
@@ -40,13 +40,13 @@ const router = createRouter({
 router.beforeEach(async (_to, _from, next) => {
 	// 显示进度条
 	NProgress.start()
-	const store = useUserInfoStore()
-	const userIsLogin = store.userInfo.token ? true : false
-	if (userIsLogin || _to.path === '/login') {
-		next()
-	} else {
-		next('/login')
-	}
+	// const store = useUserInfoStore()
+	// const userIsLogin = store.userInfo.token ? true : false
+	// if (userIsLogin || _to.path === '/login') {
+	next()
+	// } else {
+	// next('/')
+	// }
 })
 router.afterEach(() => {
 	// 结束进度条显示
